@@ -1,0 +1,23 @@
+{
+  "name": "MEANProject1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "async": "^2.5.0",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-validator": "^3.2.1",
+    "indicative": "^2.2.1",
+    "mongoose": "^4.11.5",
+    "nodemon": "^1.11.0",
+    "paperwork": "^2.1.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
