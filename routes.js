@@ -26,24 +26,32 @@ routes.get('/', (req, res) => {
 function responseHandler(response, err, succees) {
     if (err) {
         console.log(err);
-        response.status(400).send({"error": err.message})
+        response.status(400).send({
+            "responseCode": 400,
+            "responseMessage": "Unsuccessful",
+            "response": err.message
+        });
     }
     else {
-        console.log(succees);
-        response.status(200).json(succees)
+        console.log("**************", succees);
+        response.status(200).send({
+            "responseCode": 200,
+            "responseMessage": "Successful",
+            "response": succees
+        });
     }
 }
 
-routes.post('/addCompany', (req, res) => {
+routes.post('/addCompany', (req, response) => {
     console.log(req.body)
     let name = req.body.name;
+    let username = req.body.uname;
     let website = req.body.website;
-    let country = req.body.registered_address.country;
-    let state = req.body.registered_address.state;
-    let city = req.body.registered_address.city;
-    let telephone_no = req.body.telephone_no;
-    let description = req.body.description;
-    let username = req.body.username;
+    let country = req.body.country;
+    let state = req.body.state;
+    let city = req.body.city;
+    let telephone_no = req.body.contact;
+    let description = req.body.desc;
     let password = req.body.password;
 
     let company = new Company({
@@ -60,40 +68,69 @@ routes.post('/addCompany', (req, res) => {
         password: password
     });
 
-    company.save((err, sucees) => {
-        responseHandler(res, err, sucees);
+
+    company.save((err, succees) => {
+        if (err) {
+            response.status(400).send({
+                "responseCode": 400,
+                "responseMessage": "Unsuccessful",
+                "response": err.message
+            });
+
+        }
+        else {
+            console.log("**************", succees);
+            response.status(200).send({
+                "responseCode": 200,
+                "responseMessage": "Successful",
+                "response": succees
+            });
+        }
     });
 });
 
-routes.post('/addEmployee', (req, res) => {
+routes.post('/addEmployee', (req, response) => {
     console.log(req.body)
     let name = req.body.name;
     let email = req.body.email;
-    let gender = req.body.gender;
     let dob = req.body.dob;
-    let country = req.body.registered_address.country;
-    let state = req.body.registered_address.state;
-    let city = req.body.registered_address.city;
-    let telephone_no = req.body.telephone_no;
-    let company = req.body.company;
+    let country = req.body.country;
+    let state = req.body.state;
+    let city = req.body.city;
+    let telephone_no = req.body.contact;
+    let company = req.body.c_id;
 
     let employee = new Employee({
         name: name,
+        company: company,
         email: email,
-        registered_address: {
+        address: {
             country: country,
             state: state,
             city: city
         },
         telephone_no: telephone_no,
-        gender: gender,
-        dob: dob,
-        company: company
+        dob: dob
 
     });
 
-    employee.save((err, sucees) => {
-        responseHandler(res, err, sucees);
+    employee.save((err, succees) => {
+        if (err) {
+            response.status(400).send({
+                "responseCode": 400,
+                "responseMessage": "Unsuccessful",
+                "response": err.message
+            });
+
+        }
+        else {
+            console.log("**************", succees);
+            response.status(200).send({
+                "responseCode": 200,
+                "responseMessage": "Successful",
+                "response": succees
+            });
+        }
     });
 });
 
@@ -109,7 +146,7 @@ routes.post('/login', (req, res) => {
 
         else {
             if (result === null) {
-                res.status(404).send({error: "Email does not exist. Please registar"});
+                res.status(404).send({error: "Email does not exist. Please register"});
             }
             else {
 
@@ -131,54 +168,59 @@ routes.post('/login', (req, res) => {
 });
 
 
-routes.get('/getEmployees',function (req,res) {
-   let company=req.query.id;
-   Company.aggregate({
-       $match:{
-        _id: mongoose.Types.ObjectId(company)
-       }
-       },
-       {
-         $lookup:{
-             from:'Employee',
-             localField:"_id",
-             foreignField:"company",
-             as:'data'
-         }
-       },
-       {
-         $project:{
-             "_id":0,
-             "data._id":1,
-             "data.name":1,
-             "data.email":1
-         }
-       },
-       (error, success) => {
-           responseHandler(res,error,success);
-       }
-   )
-
-});
-
-
-
-routes.get('/getDetails',function (req,res) {
-    let employee=req.query.id;
-    Employee.aggregate({
-            $match:{
-                _id: mongoose.Types.ObjectId(employee)
+routes.get('/getEmployees', function (req, res) {
+    let company = req.query.id;
+    if (mongoose.Types.ObjectId.isValid(company)) {
+        Company.aggregate({
+                $match: {
+                    _id: mongoose.Types.ObjectId(company)
+                }
+            },
+            {
+                $lookup: {
+                    from: 'Employee',
+                    localField: "_id",
+                    foreignField: "company",
+                    as: 'data'
+                }
+            },
+            {
+                $project: {
+                    "_id": 0,
+                    "data._id": 1,
+                    "data.name": 1,
+                    "data.email": 1
+                }
+            },
+            (error, success) => {
+                responseHandler(res, error, success);
             }
-        },
-        (error, success) => {
-            responseHandler(res,error,success);
-        }
-    )
-
+        )
+    }
+    else {
+        responseHandler(res, {"message": "String should be a valid ObjectId"}, null);
+    }
 });
 
 
+routes.get('/getDetails', function (req, res) {
+    let employee = req.query.id;
+    if (mongoose.Types.ObjectId.isValid(employee)) {
+        Employee.aggregate({
+                $match: {
+                    _id: mongoose.Types.ObjectId(employee)
+                }
+            },
+            (error, success) => {
+                responseHandler(res, error, success);
+            }
+        )
+    }
+    else {
+        responseHandler(res, {"message": "String should be a valid ObjectId"}, null);
+    }
 
+});
 
 
 module.exports = routes;

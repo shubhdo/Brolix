@@ -18,11 +18,6 @@ const Employee = new Schema({
         unique: [true, 'email already registered'],
         trim: true
     },
-    gender: {
-        type: String,
-        required: [true, 'Please enter the gender(male or female)'],
-        enum: ['male', 'female']
-    },
     dob: {
         type: Date,
         required: [true, 'Please enter DOB'],
@@ -39,7 +34,7 @@ const Employee = new Schema({
     },
     company:
         {
-            type: Schema.Types.ObjectId, ref: 'Company', unique: true,
+            type: Schema.Types.ObjectId, ref: 'Company',
             required:[true, 'Company is must']
         }
 });

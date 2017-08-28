@@ -12,9 +12,9 @@ let Company=new Schema({
     },
     username:{
         type:String,
+        unique:true,
         required:[true,'Please enter the username'],
-        trim:true,
-        unique:true
+        trim:true
     },
     password:{
         type:String,
@@ -47,7 +47,7 @@ let Company=new Schema({
         type:String
     },
     employees:{
-        type: Schema.Types.ObjectId, ref: 'Employee', unique: true
+        type: Schema.Types.ObjectId, ref: 'Employee'
     }
 
 
