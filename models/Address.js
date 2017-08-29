@@ -19,7 +19,6 @@ let Address=new Schema({
     },
     city: {
         type: String,
-        required: [true, 'Please enter the city'],
         match: [/^[A-Za-z ]+$/, 'Only Alphabets are allowed'],
         trim: true
     }

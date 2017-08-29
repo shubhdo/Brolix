@@ -1,9 +1,12 @@
 const routes = require('express').Router();
 const mongoose = require('mongoose');
+const fs=require('fs');
+const countries= require('country-list')();
+const states= require('countryjs')
 const Company = require('./models/Company');
 const Employee = require('./models/Employee')
 const async = require('async');
-
+let countrydata;
 let url = 'mongodb://localhost:27017/company';
 mongoose.connect(url, {
     useMongoClient: true
@@ -22,6 +25,45 @@ db.once('open', function () {
 routes.get('/', (req, res) => {
     res.status(200).json("connected")
 })
+
+routes.get('/getCountries',function (req,res) {
+    countrydata= countries.getData();
+    res.status(200).send({
+        "responseCode": 200,
+        "responseMessage": "Successful",
+        "response":countrydata
+    });
+});
+
+routes.get('/getStates',function (req,res) {
+    console.log(req.query);
+    console.log(countrydata)
+    let obj=(countrydata.find(x=>x.name===req.query.country))
+    let data=states.states(obj.code);
+
+    res.status(200).send({
+        "responseCode": 200,
+        "responseMessage": "Successful",
+        "response":data
+    });
+})
+
+
+function decodeBase64Image(dataString) {
+    let matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/),
+        response = {};
+
+    if (matches.length !== 3) {
+        return new Error('Invalid input string');
+    }
+
+    response.type = matches[1];
+    response.data = new Buffer(matches[2], 'base64');
+
+    return response;
+}
+
+
 
 function responseHandler(response, err, succees) {
     if (err) {
@@ -44,6 +86,16 @@ function responseHandler(response, err, succees) {
 
 routes.post('/addCompany', (req, response) => {
     console.log(req.body)
+    let imgbuffer=decodeBase64Image(req.body.img);
+    let id=new Date().getTime()+".jpg"
+    let path ='./images/img' + id;
+    fs.writeFile(path,imgbuffer.data,function (err) {
+        if (err)
+            console.log(err);
+        else
+            console.log("File successfully written");
+    });
+    console.log(imgbuffer)
     let name = req.body.name;
     let username = req.body.uname;
     let website = req.body.website;
@@ -53,7 +105,6 @@ routes.post('/addCompany', (req, response) => {
     let telephone_no = req.body.contact;
     let description = req.body.desc;
     let password = req.body.password;
-
     let company = new Company({
         name: name,
         website: website,
@@ -65,7 +116,8 @@ routes.post('/addCompany', (req, response) => {
         telephone_no: telephone_no,
         description: description,
         username: username,
-        password: password
+        password: password,
+        logo:id
     });
 
 
@@ -138,7 +190,7 @@ routes.post('/addEmployee', (req, response) => {
 routes.post('/login', (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
-    Company.findOne({username: username}, {password: 1}, (err, result) => {
+    Company.findOne({username: username}, {password: 1,logo:1}, (err, result) => {
         if (err) {
             console.log(err);
             res.status(500).send({error: "something failed"});
@@ -220,6 +272,23 @@ routes.get('/getDetails', function (req, res) {
         responseHandler(res, {"message": "String should be a valid ObjectId"}, null);
     }
 
+});
+
+
+routes.get('/getPaginatedData/:id/:limit/:page',(req,res)=> {
+    let c_id = req.params.id;
+    console.log(c_id);
+    let limit=Number(req.params.limit);
+    let page=Number(req.params.page);
+    if (mongoose.Types.ObjectId.isValid(c_id)) {
+        let query = Employee.find({company: c_id})
+        Employee.paginate(query, {limit: limit,page:page}, (error, success) => {
+            responseHandler(res, error, success);
+        })
+    }
+    else {
+        responseHandler(res, {"message": "String should be a valid ObjectId"}, null);
+    }
 });
 
 

@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
+const paginate = require('mongoose-paginate');
 let Schema=mongoose.Schema;
+
 const Address=require('./Address');
 
 let Company=new Schema({
@@ -52,5 +54,6 @@ let Company=new Schema({
 
 
 });
+Company.plugin(paginate);
 
 module.exports=mongoose.model('Company',Company,'Company');

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const paginate =require('mongoose-paginate');
 const Address = require('./Address');
 
 const Schema = mongoose.Schema;
@@ -39,4 +40,5 @@ const Employee = new Schema({
         }
 });
 
+Employee.plugin(paginate)
 module.exports = mongoose.model('Employee', Employee, 'Employee');
