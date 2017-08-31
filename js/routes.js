@@ -1,11 +1,14 @@
 const routes = require('express').Router();
 const mongoose = require('mongoose');
-const fs=require('fs');
-const countries= require('country-list')();
-const states= require('countryjs')
+const fs = require('fs');
+const crypto=require('crypto');
+const countries = require('country-list')();
+const states = require('countryjs')
 const Company = require('./models/Company');
 const Employee = require('./models/Employee')
 const async = require('async');
+const mail=require('./mail');
+const config=require('./password');
 let countrydata;
 let url = 'mongodb://localhost:27017/company';
 mongoose.connect(url, {
@@ -26,27 +29,28 @@ routes.get('/', (req, res) => {
     res.status(200).json("connected")
 })
 
-routes.get('/getCountries',function (req,res) {
-    countrydata= countries.getData();
+routes.get('/getCountries', function (req, res) {
+    countrydata = countries.getData();
     res.status(200).send({
         "responseCode": 200,
         "responseMessage": "Successful",
-        "response":countrydata
+        "response": countrydata
     });
 });
 
-routes.get('/getStates',function (req,res) {
+routes.get('/getStates', function (req, res) {
     console.log(req.query);
     console.log(countrydata)
-    let obj=(countrydata.find(x=>x.name===req.query.country))
-    let data=states.states(obj.code);
+    let obj = (countrydata.find(x => x.name === req.query.country))
+    let data = states.states(obj.code);
 
     res.status(200).send({
         "responseCode": 200,
         "responseMessage": "Successful",
-        "response":data
+        "response": data
     });
 })
+
 
 
 function decodeBase64Image(dataString) {
@@ -62,7 +66,6 @@ function decodeBase64Image(dataString) {
 
     return response;
 }
-
 
 
 function responseHandler(response, err, succees) {
@@ -84,12 +87,18 @@ function responseHandler(response, err, succees) {
     }
 }
 
+function encrypt(text) {
+    let cipher=crypto.createCipher(config.user.algorithm,config.user.genKey)
+    let crypted=cipher.update(text,'utf-8','hex');
+    crypted+=cipher.final('hex');
+}
+
 routes.post('/addCompany', (req, response) => {
     console.log(req.body)
-    let imgbuffer=decodeBase64Image(req.body.img);
-    let id=new Date().getTime()+".jpg"
-    let path ='./images/img' + id;
-    fs.writeFile(path,imgbuffer.data,function (err) {
+    let imgbuffer = decodeBase64Image(req.body.img);
+    let id = new Date().getTime() + ".jpg"
+    let path = './images/img' + id;
+    fs.writeFile(path, imgbuffer.data, function (err) {
         if (err)
             console.log(err);
         else
@@ -117,7 +126,7 @@ routes.post('/addCompany', (req, response) => {
         description: description,
         username: username,
         password: password,
-        logo:id
+        logo: id
     });
 
 
@@ -131,18 +140,30 @@ routes.post('/addCompany', (req, response) => {
 
         }
         else {
+
             console.log("**************", succees);
-            response.status(200).send({
+
+            /*response.status(200).send({
                 "responseCode": 200,
                 "responseMessage": "Successful",
                 "response": succees
-            });
+            });*/
         }
     });
 });
 
 routes.post('/addEmployee', (req, response) => {
-    console.log(req.body)
+    console.log(req.body);
+    let imgbuffer = decodeBase64Image(req.body.img);
+    let id = new Date().getTime() + ".jpg"
+    let path = './profile/img' + id;
+    fs.writeFile(path, imgbuffer.data, function (err) {
+        if (err)
+            console.log(err);
+        else
+            console.log("File successfully written");
+    });
+    console.log(imgbuffer)
     let name = req.body.name;
     let email = req.body.email;
     let dob = req.body.dob;
@@ -162,12 +183,14 @@ routes.post('/addEmployee', (req, response) => {
             city: city
         },
         telephone_no: telephone_no,
-        dob: dob
+        dob: dob,
+        profile: id
 
     });
 
     employee.save((err, succees) => {
         if (err) {
+            console.log(err);
             response.status(400).send({
                 "responseCode": 400,
                 "responseMessage": "Unsuccessful",
@@ -190,7 +213,7 @@ routes.post('/addEmployee', (req, response) => {
 routes.post('/login', (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
-    Company.findOne({username: username}, {password: 1,logo:1}, (err, result) => {
+    Company.findOne({username: username}, {password: 1, logo: 1}, (err, result) => {
         if (err) {
             console.log(err);
             res.status(500).send({error: "something failed"});
@@ -203,6 +226,10 @@ routes.post('/login', (req, res) => {
             else {
 
                 if (password === result.password) {
+                    if (result.logo === undefined) {
+                        result.logo='placeholder.jpg';
+                    }
+
                     res.status(200).json({
                         responseCode: 200,
                         responseMessage: 'User has succesfully login',
@@ -264,6 +291,10 @@ routes.get('/getDetails', function (req, res) {
                 }
             },
             (error, success) => {
+            if (success[0].profile===undefined) {
+                success[0].profile='placeholder.jpg'
+            }
+
                 responseHandler(res, error, success);
             }
         )
@@ -275,14 +306,14 @@ routes.get('/getDetails', function (req, res) {
 });
 
 
-routes.get('/getPaginatedData/:id/:limit/:page',(req,res)=> {
+routes.get('/getPaginatedData/:id/:limit/:page', (req, res) => {
     let c_id = req.params.id;
     console.log(c_id);
-    let limit=Number(req.params.limit);
-    let page=Number(req.params.page);
+    let limit = Number(req.params.limit);
+    let page = Number(req.params.page);
     if (mongoose.Types.ObjectId.isValid(c_id)) {
         let query = Employee.find({company: c_id})
-        Employee.paginate(query, {limit: limit,page:page}, (error, success) => {
+        Employee.paginate(query, {limit: limit, page: page}, (error, success) => {
             responseHandler(res, error, success);
         })
     }
