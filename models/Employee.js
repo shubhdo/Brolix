@@ -33,6 +33,9 @@ const Employee = new Schema({
         type: Address,
         trim: true
     },
+    profile:{
+        type:String
+    },
     company:
         {
             type: Schema.Types.ObjectId, ref: 'Company',

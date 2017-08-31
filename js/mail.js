@@ -1,8 +1,8 @@
-const mailer=require('nodemailer');
-const user=require('./password');
+const mailer = require('nodemailer');
+const user = require('./password');
 
 
-module.exports=function (toMail,subject,html,text) {
+module.exports = function (toMail, subject, html, text) {
 
 
     let smtpTransport = mailer.createTransport({
@@ -26,10 +26,14 @@ module.exports=function (toMail,subject,html,text) {
     }
 
     smtpTransport.sendMail(mail, function (error, success) {
-        if (error)
-            console.log(error)
-        else
+        if (error) {
+            console.log(error);
+        }
+        else {
             console.log(success);
+        }
+        return success.accepted;
+
     })
 
 }

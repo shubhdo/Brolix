@@ -17,6 +17,7 @@
     "indicative": "^2.2.1",
     "mongoose": "^4.11.5",
     "mongoose-paginate": "^5.0.3",
+    "nodemailer": "^4.1.0",
     "nodemon": "^1.11.0",
     "paperwork": "^2.1.1"
   },

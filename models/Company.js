@@ -18,6 +18,13 @@ let Company=new Schema({
         required:[true,'Please enter the username'],
         trim:true
     },
+    email: {
+        type: String,
+        required: [true, 'Please enter the email'],
+        match: [/\S+@\S+\.\S+/, 'Please enter a valid email'],
+        unique: [true, 'email already registered'],
+        trim: true
+    },
     password:{
         type:String,
         required:[true,'Please enter the password'],
@@ -47,6 +54,10 @@ let Company=new Schema({
     },
     logo:{
         type:String
+    },
+    authenticated: {
+        type:Boolean,
+        default:false
     },
     employees:{
         type: Schema.Types.ObjectId, ref: 'Employee'
