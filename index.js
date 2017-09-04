@@ -12,8 +12,8 @@ app.use(body_parser.json());
 
 app.use(body_parser.urlencoded({extended: true}));
 
-app.use(express.static(path.join(__dirname, 'images')));
 app.use(express.static(path.join(__dirname, 'profile')));
+app.use(express.static(path.join(__dirname, 'post')));
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8000');

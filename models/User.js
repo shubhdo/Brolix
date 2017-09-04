@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
-const paginate =require('mongoose-paginate');
 const Address = require('./Address');
 
 const Schema = mongoose.Schema;
 
 
-const Employee = new Schema({
+const User = new Schema({
     name: {
         type: String,
         required: [true, 'Please enter the last name'],
@@ -18,6 +17,10 @@ const Employee = new Schema({
         match: [/\S+@\S+\.\S+/, 'Please enter a valid email'],
         unique: [true, 'email already registered'],
         trim: true
+    },
+    password:{
+      type:String,
+        required: [true, 'Please enter the password'],
     },
     dob: {
         type: Date,
@@ -36,12 +39,14 @@ const Employee = new Schema({
     profile:{
         type:String
     },
-    company:
+    description:
         {
-            type: Schema.Types.ObjectId, ref: 'Company',
-            required:[true, 'Company is must']
-        }
+            type:String,
+            required:[true, 'Please enter your description']
+        },
+    posts:{
+        type: Schema.Types.ObjectId, ref: 'Post',
+    }
 });
 
-Employee.plugin(paginate)
-module.exports = mongoose.model('Employee', Employee, 'Employee');
+module.exports = mongoose.model('User', User, 'User');

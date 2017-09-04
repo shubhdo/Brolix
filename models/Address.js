@@ -16,11 +16,6 @@ let Address=new Schema({
         trim: true,
         match: [/^[A-Za-z ]+$/, 'Only Alphabets are allowed']
 
-    },
-    city: {
-        type: String,
-        match: [/^[A-Za-z ]+$/, 'Only Alphabets are allowed'],
-        trim: true
     }
 })
 module.exports=Address;
