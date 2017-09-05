@@ -15,6 +15,8 @@
     "express": "^4.15.3",
     "express-validator": "^3.2.1",
     "indicative": "^2.2.1",
+    "jsreport": "^1.8.2",
+    "jsreport-contrib-mongodb": "0.0.2",
     "mongoose": "^4.11.5",
     "mongoose-paginate": "^5.0.3",
     "nodemailer": "^4.1.0",
