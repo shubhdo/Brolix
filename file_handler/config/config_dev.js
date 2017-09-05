@@ -13,4 +13,4 @@ db.once('open', function () {
 module.exports= {
     mongo_url:"mongodb://localhost:27017/brolix",
     server_port:3000
-}
+};

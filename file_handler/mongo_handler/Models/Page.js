@@ -16,7 +16,7 @@ const Page=new Schema({
     description:{
         type:String,
         required:[true,'Some Description is required'],
-        match: [/^[A-Za-z]{2,}/, 'Only alphabets are allowed']
+        match: [/^[A-Za-z ]{2,}/, 'Only alphabets are allowed']
     },
     blocked:{
         type:Boolean,
