@@ -30,7 +30,9 @@ next();
 });
 
 
+/*
 app.get('*',common_js_files.serveAngularPage)
+*/
 
 app.use('/',user_routes);
 app.use('/',page_routes);
