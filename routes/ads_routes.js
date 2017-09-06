@@ -32,6 +32,4 @@ routes.get('/createReport',ads_response_handler.createReport);
 routes.post('/addViewed',ads_response_handler.addViewed);
 
 
-routes.get('/getWinner',ads_response_handler.getWinner);
-
 module.exports = routes;

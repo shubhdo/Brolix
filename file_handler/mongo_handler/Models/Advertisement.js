@@ -13,7 +13,7 @@ let Advertisement=new Schema({
         required:[true,'Some Description is required'],
         match: [/^[A-Za-z0-9% ]{2,}$/, 'Only alphabets are allowed']
     },
-    winner_id:[{
+    winner_ids:[{
         type:Schema.Types.ObjectId, ref: 'User'
     }],
     viewed_by:[{

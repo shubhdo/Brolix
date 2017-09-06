@@ -10,7 +10,7 @@ module.exports = {
         let ad_type = req.body.ad_type;
         let description = req.body.description;
         let limitReach = req.body.limitReach;
-        let winnerLimit=req.body.winnerLimit;
+        let winnerLimit = req.body.winnerLimit;
 
         if (ad_type === undefined || !['Cash', 'Coupon'].includes(ad_type)) {
             common_js_functions.responseHandler(req, res, "Please enter the ad type Cash or Coupon")
@@ -25,8 +25,8 @@ module.exports = {
             common_js_functions.responseHandler(req, res, "Please enter reach limit of ad");
             return;
         }
-        if (winnerLimit === undefined || winnerLimit < limitReach) {
-            common_js_functions.responseHandler(req, res, "Winners should be less than user add limits");
+        if (winnerLimit === undefined || winnerLimit > limitReach) {
+            common_js_functions.responseHandler(req, res, "Winners should be less than user limits");
             return;
         }
 
@@ -34,7 +34,7 @@ module.exports = {
             ad_type: ad_type,
             description: description,
             limitReach: limitReach,
-            winner_limit:winnerLimit
+            winner_limit: winnerLimit
         });
         ads.save((err, succees) => {
             if (err) {
@@ -163,11 +163,79 @@ module.exports = {
                 if (resu === null) {
                     res.status(404).send({
                         "responseCode": 404,
-                        "responseMessage": "User Id not found",
+                        "responseMessage": "Ad Id not found",
                         "response": null
                     });
                 }
                 else {
+                    if (resu.expired) {
+                        res.status(400).send({
+                            "responseCode": 400,
+                            "responseMessage": "Ad expired",
+                            "response": "Winner is already announced"
+                        });
+                        return
+                    }
+                    if (resu.limitReach === resu.viewed_by.length) {
+                        let winnerArr = common_js_functions.randomNo(0, Number(resu.limitReach), Number(resu.winner_limit));
+                        console.log("2222222222222", winnerArr);
+                        let winnerArrIds = winnerArr.map(x => {
+                            return resu.viewed_by[x];
+                        });
+                        console.log("************", winnerArrIds);
+                        async.series([
+                            function (callback) {
+                                Ads.findOneAndUpdate({_id: adsIdCriteria}, {
+                                    $set: {
+                                        winner_ids: winnerArrIds,
+                                        expired: true
+                                    }
+                                }, {new: true}, (err, resu) => {
+                                    if (err) {
+                                        console.log("3333333333333", err);
+                                        callback(err);
+                                    }
+                                    else {
+                                        console.log("4444444444444", resu);
+                                        callback(null, resu);
+                                    }
+
+                                });
+
+                            },
+                            function (callback) {
+                                User.find({_id: {$in: winnerArrIds}}, (error, result) => {
+                                    if (error) {
+                                        console.log("55555555555", error);
+                                        callback(err);
+
+                                    }
+                                    else {
+                                        console.log("66666666666", result);
+                                        callback(null, result);
+                                    }
+                                })
+                            }
+                        ], (finalError, finalResponse) => {
+                            if (finalError) {
+                                console.log("77777777777", finalError)
+                                res.status(400).send({
+                                    "responseCode": 400,
+                                    "responseMessage": "Unsuccessful",
+                                    "response": finalError.message
+                                });
+                            }
+                            else {
+                                console.log("88888888888", finalResponse)
+                                res.status(200).send({
+                                    "responseCode": 200,
+                                    "responseMessage": "Winner is announced",
+                                    "response": finalResponse
+                                });
+                            }
+                        });
+                        return;
+                    }
                     let viewed_users = resu.viewed_by;
                     console.log("111111111", viewed_users);
                     console.log("222222222", userId);
@@ -212,125 +280,7 @@ module.exports = {
         });
 
 
-    },
-
-    getWinner: (req, res) => {
-        let adsId = req.query.id;
-
-        if (adsId === undefined || !mongoose.Types.ObjectId.isValid(adsId)) {
-            common_js_functions.responseHandler(req, res, "Please enter valid page Id to get winner")
-            return;
-        }
-
-        Ads.aggregate({
-                $match: {_id: mongoose.Types.ObjectId(adsId)}
-            },
-            {$project: {limitReach: 1, viewed_by: 1, expired: 1, count: {$size: "$viewed_by"}}}
-            , (err, success) => {
-                if (err) {
-                    console.log("11111111111111", err);
-                    res.status(400).send({
-                        "responseCode": 400,
-                        "responseMessage": "Unsuccessful",
-                        "response": err.message
-                    });
-
-                }
-                else {
-
-                    console.log("0000000000000", success);
-
-                    if (success[0] === undefined) {
-                        res.status(404).send({
-                            "responseCode": 404,
-                            "responseMessage": "Ad Id Not  Found",
-                            "response": null
-                        });
-                    }
-                    else {
-                        if (success[0].expired) {
-                            res.status(400).send({
-                                "responseCode": 400,
-                                "responseMessage": "Ad expired",
-                                "response": "Winner is already announced"
-                            });
-                            return
-                        }
-
-                        if (success[0].count < success[0].limitReach) {
-                            res.status(400).send({
-                                "responseCode": 400,
-                                "responseMessage": "Winner not Announced",
-                                "response": "Ads is not yet reached its limit"
-                            });
-                        }
-                        else {
-                            console.log(common_js_functions.randomNo(1, Number(success[0].count)))
-                            let Winner = success[0].viewed_by[common_js_functions.randomNo(0, Number(success[0].count))];
-                            console.log("2222222222222", Winner)
-                            async.series([
-                                function (callback) {
-                                    Ads.findOneAndUpdate({_id: adsId}, {
-                                        $set: {
-                                            winner_id: Winner,
-                                            expired: true
-                                        }
-                                    }, {new: true}, (err, resu) => {
-                                        if (err) {
-                                            console.log("3333333333333", err);
-                                            callback(err);
-                                        }
-                                        else {
-                                            console.log("4444444444444", resu);
-                                            callback(null, resu);
-                                        }
-
-                                    });
-
-                                },
-                                function (callback) {
-                                    User.findOne({_id: Winner}, (error, result) => {
-                                        if (error) {
-                                            console.log("55555555555", error);
-                                            callback(err);
-
-                                        }
-                                        else {
-                                            console.log("66666666666", result);
-                                            callback(null, result);
-                                            /*res.status(200).send({
-                                                "responseCode": 200,
-                                                "responseMessage": "Winner is Announced",
-                                                "response": result
-                                            });*/
-                                        }
-                                    })
-                                }
-                            ], (finalError, finalResponse) => {
-                                if (finalError) {
-                                    console.log("77777777777", finalError)
-                                    res.status(400).send({
-                                        "responseCode": 400,
-                                        "responseMessage": "Unsuccessful",
-                                        "response": finalError.message
-                                    });
-                                }
-                                else {
-                                    console.log("88888888888", finalResponse)
-                                    res.status(200).send({
-                                        "responseCode": 200,
-                                        "responseMessage": "Winner is announced",
-                                        "response": finalResponse
-                                    });
-                                }
-                            });
-
-
-                        }
-                    }
-                }
-            })
     }
 
 
-}
+};

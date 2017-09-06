@@ -55,10 +55,6 @@ const User = new Schema({
     pages:[{
         type: Schema.Types.ObjectId, ref: 'Page'
     }],
-
-    viewed_ads:[{
-    type:Schema.Types.ObjectId, ref: 'Advertisement'
-    }],
     status_active:{
         type:Boolean,
         default:true

@@ -13,9 +13,15 @@ module.exports={
     return response;
     },
 
-    randomNo:function (low,high) {
-        console.log(low,high)
-        return Math.floor(Math.random()*(high-low)+low)
+    randomNo:function (low,high,limit) {
+        let randNo=[];
+        console.log("//////////",low,high,limit);
+        while (randNo.length!==limit) {
+           let x=Math.floor(Math.random()*(high-low)+low)
+           if (!randNo.includes(x))
+               randNo.push(x);
+        }
+        return randNo;
     },
     dateValidation:function dateValidation(dob) {
         let date = new Date();
