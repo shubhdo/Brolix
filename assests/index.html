@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Brolix</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css.map">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="jumbotron">
+            <h3 class="text-center">Brolix</h3>
+</div>
+<div class="container">
+    <ul class="nav nav-pills nav-justified">
+        <li><a href="#!/users">Manage Users</a></li>
+        <li><a href="#!/pages">Manage Pages</a></li>
+        <li><a href="#!/ads">Manage Ads</a></li>
+    </ul>
+</div>
+
+    <div ng-view id="view"></div>
+
+<!--
+  <div>Angular seed app: v<span app-version></span></div>
+-->
+
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+-->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="app.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/material-angular-paging/build/dist.min.js"></script>
+<script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+<script src="js/flip_box.js"></script>
+<script src="users/usersCtrl.js"></script>
+<script src="ads/adsCtrl.js"></script>
+<script src="pages/pagesCtrl.js"></script>
+
+</body>
+</html>
