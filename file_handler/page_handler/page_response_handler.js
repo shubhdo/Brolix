@@ -1,5 +1,7 @@
 let mongoose=require('mongoose');
 let Page=require('../mongo_handler/Models/Page');
+let User=require('../mongo_handler/Models/User');
+
 let common_js_functions=require('../common_files/js/js_functions');
 
 module.exports={
@@ -9,7 +11,7 @@ module.exports={
         let description=req.body.description;
         console.log(created_by)
 
-        if (page_name===undefined||!/^[A-Za-z]{2,20}$/.test(page_name)) {
+        if (page_name===undefined||!/^[A-Za-z ]{2,20}$/.test(page_name)) {
             common_js_functions.responseHandler(req,res,"Please enter page name between 2-30 characters only")
             return;
         }
@@ -19,7 +21,7 @@ module.exports={
 
         }
         if (description===undefined||!/^[A-Za-z ]{2,}$/.test(description)) {
-            common_js_functions.responseHandler(req,res,"Please enter valid email including @ symbol")
+            common_js_functions.responseHandler(req,res,"Please enter some description")
             return;
 
         }
@@ -41,10 +43,24 @@ module.exports={
             }
             else {
                 console.log("**************", succees);
-                res.status(200).send({
-                    "responseCode": 200,
-                    "responseMessage": "Successful",
-                    "response": succees
+
+                User.findOneAndUpdate({_id:created_by},{$push:{pages:succees._id}},(finalError,finalResponse)=> {
+                   if(finalError) {
+                       console.log(finalError);
+                       res.status(400).send({
+                           "responseCode": 400,
+                           "responseMessage": "Unsuccessful",
+                           "response": finalError.message
+                       });
+                   }
+                   else {
+                       console.log(finalResponse);
+                       res.status(200).send({
+                           "responseCode": 200,
+                           "responseMessage": "Successful",
+                           "response": finalResponse
+                       });
+                   }
                 });
             }
         });

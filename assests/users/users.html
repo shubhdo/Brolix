@@ -5,7 +5,7 @@
     <button type="button" class="btn btn-primary">Generate Report</button>
 
 </div>
-<div class="wrapper" >
+<div class="wrapper">
     <div class="col_third">
         <div class="hover panel">
             <div class="front">
@@ -111,5 +111,157 @@
         </div>
     </div>
 </div>
+<div style="clear: both"></div>
 
+<input type="text" ng-model="strSearch.firstname" placeholder="Search By Name">
+
+<table class="table table-bordered table-hover table-condensed table-striped table-responsive col-lg-offset-3" style="width: auto;margin-top: 25px;font-size: 16px">
+    <tr>
+        <td class="btn-primary">First Name</td>
+        <td class="btn-primary">Last Name</td>
+        <td class="btn-primary">Email</td>
+        <td class="btn-primary">Telephone No</td>
+        <td class="btn-primary">Pages</td>
+        <td class="btn-primary">Status</td>
+
+        <td class="btn-primary" colspan="3">Action</td>
+
+
+    </tr>
+    <tr ng-repeat="user in users|filter:strSearch track by $index">
+        <td>{{user.firstname}}</td>
+        <td>{{user.lastname}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.telephone_no}}</td>
+        <td>{{user.pages.length}}</td>
+        <td>{{user.blocked}}</td>
+
+        <td ng-click="saveUser(user)" class="action" data-toggle="modal" data-target="#confirmation"><a href="" ></a>{{user.status}}</td>
+
+        <td ng-click="editUser(user)" class="action" data-toggle="modal" data-target="#details"><a href="">Edit</a></td>
+
+
+    </tr>
+</table>
+
+
+
+
+
+<div id="confirmation" role="dialog" class="modal fade" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content" style="font-size: 15px">
+            <div style="background-color: #286090;height: 30px"></div>
+            <h1 class="modal-title" style="font-size: 17px;margin-top: 10px">Are you sure to perform this action?</h1>
+
+            <div class="modal-body">
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="blockUser(user)">Yes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="details" role="dialog" class="modal fade" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content" style="font-size: 15px">
+            <h1 class="modal-title" style="font-size: 17px">Edit User Details</h1>
+
+            <div class="modal-body">
+
+                <form name="edit" autocomplete="off">
+                    <div class="form-group">
+                        First Name
+                        <input type="text" name="fname" required ng-model="obj.fname" ng-pattern="/^[a-zA-Z]{3,30}$/"
+                               class="form-control">
+                        <span
+                                ng-show='edit.fname.$dirty&&edit.fname.$invalid||edit.fname.$dirty&&edit.fname.$error.pattern'>
+        Characters should be between 3 to 30
+
+  </span>
+                    </div>
+                    <div class="form-group">
+                        Last Name
+                        <input type="text" name="lname" required ng-model="obj.lname" ng-pattern="/^[a-zA-Z]{3,30}$/"
+                               class="form-control">
+                        <span
+                                ng-show='edit.lname.$dirty&&edit.lname.$invalid||edit.lname.$dirty&&edit.lname.$error.pattern'>
+        Characters should be between 3 to 30
+
+  </span>
+                    </div>
+                    <div class="form-group">
+                        Email
+
+                        <input type="email" name="email" required ng-model="obj.email" ng-pattern="/\S+@\S+\.\S+/" class="form-control">
+                        <span
+                                ng-show='edit.email.$dirty&&edit.email.$invalid||edit.email.$dirty&&edit.email.$error.pattern'>
+        Please enter valid email
+
+  </span>
+
+                    </div>
+
+                    <div class="form-group">
+                        Contact Number
+
+                        <input type="number" name="contact" required ng-model="obj.contact" ng-pattern="/(7|8|9)\d{9}/"
+                               class="form-control">
+                        <span
+                                ng-show='edit.contact.$dirty&&edit.contact.$invalid||edit.contact.$dirty&&edit.contact.$error.pattern'>
+    Please enter 10 digits with nos starting with 7,8,9
+  </span>
+
+                    </div>
+                    <div class="form-group">
+                        Date of Birth
+
+                        <input type="date" name="dob" required id="dob1" ng-model="obj.dob" ng-required="true"
+                               onfocus="dateValidation()" class="form-control">
+                        <span
+                                ng-show='edit.dob.$dirty&&edit.dob.$invalid||edit.dob.$dirty&&edit.dob.$error.pattern'>
+        Please enter your valid Date of Birth
+  </span>
+                    </div>
+
+                    <div class="form-group">
+                        Country
+
+                        <select id="country" ng-model="obj.country" required ng-focus="getData()" ng-click="getData()"
+                                ng-change="getStates(obj.country)" class="form-control"
+                        >
+                            <option value="">Please choose Country</option>
+
+
+                            <option ng-repeat="count in country">{{count.name}}</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        State
+
+
+                        <select id="state" required ng-disabled="!obj.country" ng-model="obj.state" class="form-control">
+                            <option value="">Please choose State</option>
+                            <option ng-repeat="stat in states">{{stat}}</option>
+                        </select>
+                    </div>
+
+                    <input type="submit" ng-disabled="edit.$invalid" ng-click="add(edit)" value="Add user">
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 

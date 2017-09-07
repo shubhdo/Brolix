@@ -10,7 +10,7 @@ const Page=new Schema({
     page_name:{
        type:String,
         required:[true,'Some Name is required'],
-        match: [/^[A-Za-z]{2,20}$/, 'Only alphabets are allowed'],
+        match: [/^[A-Za-z ]{2,20}$/, 'Only alphabets are allowed'],
 
     },
     description:{

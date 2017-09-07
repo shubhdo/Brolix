@@ -27,6 +27,8 @@ routes.put('/editUser',user_response_handler.editUser);
 
 routes.post('/blockUser',user_response_handler.blockUser);
 
+routes.get('/getUsers',user_response_handler.getUsers);
+
 routes.get('/createReport',user_response_handler.createReport);
 
 

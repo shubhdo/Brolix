@@ -131,6 +131,7 @@ module.exports = {
     },
     createReport: (req, res) => {
 
+
     },
     addViewed: (req, res) => {
 
