@@ -15,8 +15,39 @@ app.controller('usersCtrl',function ($scope,dataService,$document) {
     }
     
     $scope.editUser=function (user) {
-        
+        $scope.obj=user;
+        console.log(user);
+
     }
+
+    $scope.getData=function () {
+        dataService.getCountries()
+            .then(function (response) {
+                $scope.country=response.data.response;
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
+    };
+    
+    
+    $scope.add=function (data) {
+        dataService.editUser(data).then(function (response) {
+            console.log(response);
+        }).catch(function (response) {
+            console.log(response);
+        })
+    }
+
+    $scope.getStates=function () {
+        dataService.getStates($scope.obj.country)
+            .then(function (response) {
+                $scope.states=response.data.response
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
+    };
 
     $scope.saveUser=function (user) {
         saveData=user

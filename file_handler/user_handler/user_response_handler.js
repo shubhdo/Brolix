@@ -9,8 +9,10 @@ module.exports = {
         let dob = req.body.dob;
         let country = req.body.country;
         let state = req.body.state;
-        let telephone_no = req.body.contact;
+        let telephone_no = req.body.telephone_no;
         let gender = req.body.gender;
+
+        console.log("6666666666",req.body);
 
         if (firstname === undefined || !/^[A-Za-z]{2,20}$/.test(firstname)) {
             common_js_functions.responseHandler(req, response, "Please enter first name between 3-30 characters only")
@@ -30,8 +32,8 @@ module.exports = {
             common_js_functions.responseHandler(req, response, "Age range should be between 18-60")
             return;
         }
-        if (telephone_no === undefined || !/^(7|8|9)\d{9}$/.test(telephone_no)) {
-            common_js_functions.responseHandler(req, response, "Please enter 10 digits with nos starting with 7,8,9")
+        if (telephone_no === undefined || !/^[0-9]{10,14}$/.test(telephone_no)) {
+            common_js_functions.responseHandler(req, response, "Please enter 10-14 digits ")
             return;
         }
         if (gender === undefined || !['male', 'female'].includes(gender)) {
@@ -74,19 +76,17 @@ module.exports = {
         });
     },
     editUser: (req, res) => {
-        console.log(req.body)
-        let criteria = req.body.emailId;
+        console.log("777777777777",req.body)
+        let criteria = req.body._id;
 
         let firstname = req.body.firstname;
         let lastname = req.body.lastname;
-        let email = req.body.email;
         let dob = req.body.dob;
         let country = req.body.country;
         let state = req.body.state;
-        let telephone_no = req.body.contact;
+        let telephone_no = req.body.telephone_no;
         let gender = req.body.gender;
         let blocked = req.body.blocked;
-        let emailCriteria = req.body.emailToFind;
 
         let setValue = {};
         setValue.address = {};
@@ -95,10 +95,6 @@ module.exports = {
         }
         if (lastname !== undefined && /^[A-Za-z]{2,20}$/.test(lastname)) {
             setValue.lastname = lastname
-        }
-        if (email !== undefined && /\S+@\S+\.\S+/.test(email)) {
-
-            common_js_functions.responseHandler(req, res, "Email cannot be altered");
         }
         if (dob !== undefined && common_js_functions.dateValidation(dob)) {
             setValue.dob = dob
@@ -119,7 +115,7 @@ module.exports = {
             setValue.blocked = blocked
         }
         console.log(setValue)
-        User.findOneAndUpdate({email: criteria}, {$set: setValue}, {new: true}, (err, succees) => {
+        User.findOneAndUpdate({_id: criteria}, {$set: setValue}, {new: true}, (err, succees) => {
             if (err) {
                 console.log(err);
                 res.status(400).send({

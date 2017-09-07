@@ -1,10 +1,3 @@
-<div class="btn-group-vertical side_button" style="float: left">
-    <button type="button" class="btn btn-primary">Add User</button>
-    <button type="button" class="btn btn-primary">Edit User</button>
-    <button type="button" class="btn btn-primary">Block User</button>
-    <button type="button" class="btn btn-primary">Generate Report</button>
-
-</div>
 <div class="wrapper">
     <div class="col_third">
         <div class="hover panel">
@@ -172,6 +165,9 @@
 <div id="details" role="dialog" class="modal fade" data-backdrop="false">
     <div class="modal-dialog">
         <div class="modal-content" style="font-size: 15px">
+            <div class="modal-content" style="font-size: 15px">
+                <div style="background-color: #286090;height: 30px"></div>
+
             <h1 class="modal-title" style="font-size: 17px">Edit User Details</h1>
 
             <div class="modal-body">
@@ -179,7 +175,7 @@
                 <form name="edit" autocomplete="off">
                     <div class="form-group">
                         First Name
-                        <input type="text" name="fname" required ng-model="obj.fname" ng-pattern="/^[a-zA-Z]{3,30}$/"
+                        <input type="text" name="fname" required ng-model="obj.firstname" ng-pattern="/^[a-zA-Z]{3,30}$/"
                                class="form-control">
                         <span
                                 ng-show='edit.fname.$dirty&&edit.fname.$invalid||edit.fname.$dirty&&edit.fname.$error.pattern'>
@@ -189,7 +185,7 @@
                     </div>
                     <div class="form-group">
                         Last Name
-                        <input type="text" name="lname" required ng-model="obj.lname" ng-pattern="/^[a-zA-Z]{3,30}$/"
+                        <input type="text" name="lname" required ng-model="obj.lastname" ng-pattern="/^[a-zA-Z]{3,30}$/"
                                class="form-control">
                         <span
                                 ng-show='edit.lname.$dirty&&edit.lname.$invalid||edit.lname.$dirty&&edit.lname.$error.pattern'>
@@ -197,22 +193,11 @@
 
   </span>
                     </div>
-                    <div class="form-group">
-                        Email
-
-                        <input type="email" name="email" required ng-model="obj.email" ng-pattern="/\S+@\S+\.\S+/" class="form-control">
-                        <span
-                                ng-show='edit.email.$dirty&&edit.email.$invalid||edit.email.$dirty&&edit.email.$error.pattern'>
-        Please enter valid email
-
-  </span>
-
-                    </div>
 
                     <div class="form-group">
                         Contact Number
 
-                        <input type="number" name="contact" required ng-model="obj.contact" ng-pattern="/(7|8|9)\d{9}/"
+                        <input type="number" name="contact" required ng-model="obj.telephone_no" ng-pattern="/(7|8|9)\d{9}/"
                                class="form-control">
                         <span
                                 ng-show='edit.contact.$dirty&&edit.contact.$invalid||edit.contact.$dirty&&edit.contact.$error.pattern'>
@@ -220,17 +205,6 @@
   </span>
 
                     </div>
-                    <div class="form-group">
-                        Date of Birth
-
-                        <input type="date" name="dob" required id="dob1" ng-model="obj.dob" ng-required="true"
-                               onfocus="dateValidation()" class="form-control">
-                        <span
-                                ng-show='edit.dob.$dirty&&edit.dob.$invalid||edit.dob.$dirty&&edit.dob.$error.pattern'>
-        Please enter your valid Date of Birth
-  </span>
-                    </div>
-
                     <div class="form-group">
                         Country
 
@@ -254,7 +228,7 @@
                         </select>
                     </div>
 
-                    <input type="submit" ng-disabled="edit.$invalid" ng-click="add(edit)" value="Add user">
+                    <input type="submit" ng-disabled="edit.$invalid" ng-click="add(obj)" data-dismiss="modal" value="Edit user">
 
                 </form>
             </div>
@@ -263,5 +237,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 

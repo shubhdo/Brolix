@@ -8,12 +8,28 @@ angular.module('myApp').service('dataService', function ($q, $http) {
 
     self.getUsers=function () {
         return httpCall('GET',baseUrl+"getUsers");
-    }
+    };
 
     self.blockUser=function (data) {
         console.log("999999999",data)
         return httpCall('POST',baseUrl+"blockUser",data)
+    };
+    self.getCountries=function () {
+        return httpCall('GET',baseUrl+"getCountries");
+    };
+
+    self.getStates=function (country) {
+        return httpCall('GET',baseUrl+"getStates?country="+country);
+    };
+
+    self.editUser=function (data) {
+        return httpCall('PUT',baseUrl+"editUser",data)
     }
+
+    self.addUser=function (data) {
+        return httpCall('POST',baseUrl+"addUser",data);
+    }
+
     function httpCall(method, url, data) {
         return $q(function (resolve, reject) {
             $http({

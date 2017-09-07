@@ -1,0 +1,99 @@
+<h2>Add User</h2>
+
+<div style="width: 400px;margin-left: 350px">
+
+    <form name="adduser" autocomplete="off" style="font-size: 14px">
+        <div class="form-group">
+            First Name
+            <input type="text" name="fname" required ng-model="obj.firstname" ng-pattern="/^[a-zA-Z]{3,30}$/"
+                   class="form-control">
+            <span
+                    ng-show='adduser.fname.$dirty&&adduser.fname.$invalid||adduser.fname.$dirty&&adduser.fname.$error.pattern'>
+        Characters should be between 3 to 30
+
+  </span>
+        </div>
+        <div class="form-group">
+            Last Name
+            <input type="text" name="lname" required ng-model="obj.lastname" ng-pattern="/^[a-zA-Z]{3,30}$/"
+                   class="form-control">
+            <span
+                    ng-show='adduser.lname.$dirty&&adduser.lname.$invalid||adduser.lname.$dirty&&adduser.lname.$error.pattern'>
+        Characters should be between 3 to 30
+
+  </span>
+        </div>
+
+        <div class="form-group">
+            Email
+
+            <input type="email" name="email" required ng-model="obj.email" ng-pattern="/\S+@\S+\.\S+/" class="form-control">
+            <span
+                    ng-show='adduser.email.$dirty&&adduser.email.$invalid||adduser.email.$dirty&&adduser.email.$error.pattern'>
+        Please enter valid email
+
+  </span>
+
+        </div>
+
+        <div class="form-group">
+            Contact Number
+
+            <input type="number" name="contact" required ng-model="obj.telephone_no" ng-pattern="/^[0-9]{10,14}$/"
+                   class="form-control">
+            <span
+                    ng-show='adduser.contact.$dirty&&adduser.contact.$invalid||adduser.contact.$dirty&&adduser.contact.$error.pattern'>
+    Please enter 10 digits with nos starting with 7,8,9
+  </span>
+
+        </div>
+        <div class="form-group">
+            Date of Birth
+
+            <input type="date" name="dob" required id="dob1" ng-model="obj.dob" ng-required="true"
+                   onfocus="dateValidation()" class="form-control">
+            <span
+                    ng-show='adduser.dob.$dirty&&adduser.dob.$invalid||adduser.dob.$dirty&&adduser.dob.$error.pattern'>
+        Please enter your valid Date of Birth
+  </span>
+        </div>
+
+        <div class="form-group">
+            Country
+
+            <select id="country" ng-model="obj.country" required ng-focus="getData()" ng-click="getData()"
+                    ng-change="getStates(obj.country)" class="form-control"
+            >
+                <option value="">Please choose Country</option>
+
+
+                <option ng-repeat="count in country">{{count.name}}</option>
+            </select>
+
+        </div>
+        <div class="form-group">
+            State
+
+
+            <select id="state" required ng-disabled="!obj.country" ng-model="obj.state" class="form-control">
+                <option value="">Please choose State</option>
+                <option ng-repeat="stat in states">{{stat}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            Gender
+
+
+            <select id="gender" required ng-model="obj.gender" class="form-control">
+                <option value="">Please choose Gender</option>
+                <option>male</option>
+                <option>female</option>
+
+            </select>
+        </div>
+
+        <input type="submit" ng-disabled="adduser.$invalid" ng-click="add(obj)" data-dismiss="modal" value="Add User">
+
+    </form>
+</div>

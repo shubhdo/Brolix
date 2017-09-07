@@ -18,5 +18,9 @@ app.config(['$locationProvider', '$routeProvider', function ($locationProvider, 
         .when('/ads', {
             templateUrl: 'ads/ads.html',
             controller: 'adsCtrl'
+        })
+        .when('/addUser', {
+            templateUrl: 'addUser/addUser.html',
+            controller: 'addUserCtrl'
         }).otherwise({redirectTo: '/users'});
 }])
