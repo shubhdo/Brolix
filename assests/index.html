@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
 <div id="header">
             <img src="images/logo.png" style="width: 100px;height: 60px;float: left;margin-left: 20px">
 </div>
@@ -28,20 +27,22 @@
         <div class="col-lg-12">
             <ul class="nav nav-tabs nav-tabs-inverse nav-justified nav-justified-mobile" data-sortable-id="index-2">
                 <!-- <li class="first" ng-class="{'active':header=='Manage User'}" ng-if="user.indexOf('ManageUser')>-1"><a ng-href="#header/manageUsers">Manage Users</a> -->
-                <li class="first active">
+                <li class="tabs">
                     <a href="#!/users">Users</a>
                 </li>
                 <!-- <li class="first" ng-class="{'active':header=='Manage User'}" ng-if="user.indexOf('ManageUser')>-1"><a ng-href="#header/manageUsers">Manage Users</a> -->
-                <li class="" >
+                <li class="tabs" >
                     <a href="#!/pages">Pages</a>
                 </li>
-                <li class="" >
+                <li class="tabs" >
                     <a href="#!/ads">Ads</a>
                 </li>
             </ul>
         </div>
     </div>
 </div>
+<div id="tabs" ng-style="myStyle" ng-controller="loginCtrl">
+
 <ul class="nav navbar-nav side-nav">
     <li class="prodata">
         <div class="profile-img">
@@ -49,19 +50,16 @@
                 <img src="http://res.cloudinary.com/dfrspfd4g/image/upload/v1503549944/jfkrhpoqqaqkrbvw27st.png">
             </div>
             <div class="rightdes">
-                <h3 class="title-s">Welcome</h3>
-                <div class="sub-title ng-binding">Deepak Sharma</div>
+               <!-- <h3 class="title-s">Welcome</h3>
+                <div class="ng-binding">Shubham</div>
                 <div class="logout">
                     <a style="cursor:pointer;" ng-click="logout()">Logout</a>
-                </div>
+                </div>-->
             </div>
         </div>
     </li>
     <li>
-        <a style="cursor:pointer;"href="#!/adminProfile">ADMIN PROFILE</a>
-    </li>
-    <li>
-        <a style="cursor:pointer;"href="#!/addUser" class="">ADD USER</a>
+        <a style="cursor:pointer;"href="#!/addUser" >ADD USER</a>
     </li>
     <!--  <li>
          <a>BLOCK USER</a>
@@ -70,6 +68,7 @@
          <a> CREATE REPORT</a>
      </li>  -->
 </ul>
+</div>
     <div ng-view id="view"></div>
 
 <!--
@@ -92,6 +91,7 @@
 <script src="ads/adsCtrl.js"></script>
 <script src="pages/pagesCtrl.js"></script>
 <script SRC="addUser/addUserCtrl.js"></script>
+<script src="login/loginCtrl.js"></script>
 <script src="js/dataService.js"></script>
 </body>
 </html>

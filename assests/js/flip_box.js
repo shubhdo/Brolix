@@ -9,3 +9,11 @@ $(document).ready(function(){
         $(this).removeClass('flip');
     });
 });
+
+
+$('.hover').hover(function(){
+    console.log("flipped");
+    $(this).addClass('flip');
+},function(){
+    $(this).removeClass('flip');
+});

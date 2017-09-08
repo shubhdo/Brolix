@@ -1,0 +1,23 @@
+<h1 class="text-center" style="margin-right: 40px;font-size: 16px">Login</h1>
+<form name="login" autocomplete="off" class="center-block" style="font-size: 14px;width: 400px">
+    <div class="form-group">
+
+        Email
+        <input type="email" required name="username" ng-model="obj3.email" class="form-control">
+
+        <span ng-show='login.username.$dirty&&login.username.$invalid'>
+    Please enter valid email include @
+  </span>
+    </div>
+    <div class="form-group">
+
+        Password
+        <input type="password" required name="password" ng-model="obj3.password" class="form-control">
+        <span ng-show='login.password.$dirty&&login.password.$invalid'>
+   Please enter your password
+  </span>
+    </div>
+    <div class="text-center">
+        <input type="submit" ng-click="loginForm(login)" ng-disabled="login.$invalid" class="btn-lg btn btn-default">
+    </div>
+</form>

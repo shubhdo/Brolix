@@ -2,18 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5899cd5a-50ab-43e9-9d7d-216496de99ae" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assests/addUser/addUser.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assests/addUser/addUserCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/file_handler/mongo_handler/Models/Admin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/addUser/addUser.html" afterPath="$PROJECT_DIR$/assests/addUser/addUser.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/addUser/addUserCtrl.js" afterPath="$PROJECT_DIR$/assests/addUser/addUserCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/ads/ads.html" afterPath="$PROJECT_DIR$/assests/ads/ads.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/ads/adsCtrl.js" afterPath="$PROJECT_DIR$/assests/ads/adsCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/app.js" afterPath="$PROJECT_DIR$/assests/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/css/style.css" afterPath="$PROJECT_DIR$/assests/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/index.html" afterPath="$PROJECT_DIR$/assests/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/js/dataService.js" afterPath="$PROJECT_DIR$/assests/js/dataService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/js/flip_box.js" afterPath="$PROJECT_DIR$/assests/js/flip_box.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/pages/pages.html" afterPath="$PROJECT_DIR$/assests/pages/pages.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/pages/pagesCtrl.js" afterPath="$PROJECT_DIR$/assests/pages/pagesCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/users/users.html" afterPath="$PROJECT_DIR$/assests/users/users.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/users/usersCtrl.js" afterPath="$PROJECT_DIR$/assests/users/usersCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file_handler/ads_handler/ads_response_handler.js" afterPath="$PROJECT_DIR$/file_handler/ads_handler/ads_response_handler.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file_handler/common_files/js/js_functions.js" afterPath="$PROJECT_DIR$/file_handler/common_files/js/js_functions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file_handler/mongo_handler/Models/User.js" afterPath="$PROJECT_DIR$/file_handler/mongo_handler/Models/User.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file_handler/page_handler/page_response_handler.js" afterPath="$PROJECT_DIR$/file_handler/page_handler/page_response_handler.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file_handler/user_handler/user_response_handler.js" afterPath="$PROJECT_DIR$/file_handler/user_handler/user_response_handler.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/ads_routes.js" afterPath="$PROJECT_DIR$/routes/ads_routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/page_routes.js" afterPath="$PROJECT_DIR$/routes/page_routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/user_routes.js" afterPath="$PROJECT_DIR$/routes/user_routes.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,83 +42,18 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assests/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1674">
-              <caret line="93" column="35" lean-forward="false" selection-start-line="93" selection-start-column="35" selection-end-line="93" selection-end-column="35" />
-              <folding>
-                <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="-198">
+              <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assests/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user_response_handler.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/file_handler/user_handler/user_response_handler.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="34" column="49" lean-forward="false" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addUser.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assests/addUser/addUser.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="95" column="109" lean-forward="false" selection-start-line="95" selection-start-column="109" selection-end-line="95" selection-end-column="109" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assests/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="539">
-              <caret line="184" column="20" lean-forward="false" selection-start-line="184" selection-start-column="20" selection-end-line="184" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="usersCtrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assests/users/usersCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="48" column="14" lean-forward="true" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addUserCtrl.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assests/addUser/addUserCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dataService.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assests/js/dataService.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+            <state relative-caret-position="54">
+              <caret line="3" column="52" lean-forward="true" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -135,10 +82,13 @@
       <find>form-control</find>
       <find>edit</find>
       <find>signup</find>
+      <find>activ</find>
+      <find>lname</find>
     </findStrings>
     <replaceStrings>
       <replace>edit</replace>
       <replace>adduser</replace>
+      <replace>description</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -147,8 +97,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/node_modules/index.js" />
-        <option value="$PROJECT_DIR$/models/routes.js" />
         <option value="$PROJECT_DIR$/views/app.js" />
         <option value="$PROJECT_DIR$/models/Employee.js" />
         <option value="$PROJECT_DIR$/mail.js" />
@@ -157,7 +105,6 @@
         <option value="$PROJECT_DIR$/js/mail.js" />
         <option value="$PROJECT_DIR$/models/Company.js" />
         <option value="$PROJECT_DIR$/.git/info/exclude" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/js/password.js" />
         <option value="$PROJECT_DIR$/models/Address.js" />
         <option value="$PROJECT_DIR$/package.json" />
@@ -172,31 +119,35 @@
         <option value="$PROJECT_DIR$/file_handler/config/dev.json" />
         <option value="$PROJECT_DIR$/file_handler/config/config_dev.js" />
         <option value="$PROJECT_DIR$/file_handler/common_files/js/js_routes.js" />
-        <option value="$PROJECT_DIR$/assests/pages/pagesCtrl.js" />
-        <option value="$PROJECT_DIR$/assests/ads/adsCtrl.js" />
-        <option value="$PROJECT_DIR$/assests/js/flip_box.js" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/file_handler/mongo_handler/Models/Advertisement.js" />
-        <option value="$PROJECT_DIR$/file_handler/common_files/js/js_functions.js" />
-        <option value="$PROJECT_DIR$/routes/page_routes.js" />
-        <option value="$PROJECT_DIR$/file_handler/mongo_handler/Models/User.js" />
-        <option value="$PROJECT_DIR$/routes/ads_routes.js" />
-        <option value="$PROJECT_DIR$/file_handler/ads_handler/ads_response_handler.js" />
-        <option value="$PROJECT_DIR$/routes/user_routes.js" />
         <option value="$PROJECT_DIR$/file_handler/mongo_handler/Models/Page.js" />
-        <option value="$PROJECT_DIR$/file_handler/page_handler/page_response_handler.js" />
+        <option value="$PROJECT_DIR$/assests/addUser/addUser.js" />
+        <option value="$PROJECT_DIR$/assests/app.js" />
+        <option value="$PROJECT_DIR$/routes/user_routes.js" />
+        <option value="$PROJECT_DIR$/file_handler/mongo_handler/Models/Admin.js" />
+        <option value="$PROJECT_DIR$/file_handler/mongo_handler/Models/User.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/assests/js/flip_box.js" />
+        <option value="$PROJECT_DIR$/file_handler/user_handler/user_response_handler.js" />
         <option value="$PROJECT_DIR$/assests/users/usersCtrl.js" />
+        <option value="$PROJECT_DIR$/assests/css/style.css" />
+        <option value="$PROJECT_DIR$/file_handler/common_files/js/js_functions.js" />
+        <option value="$PROJECT_DIR$/assests/addUser/addUser.html" />
+        <option value="$PROJECT_DIR$/assests/addUser/addUserCtrl.js" />
+        <option value="$PROJECT_DIR$/assests/login/login.html" />
+        <option value="$PROJECT_DIR$/assests/index.html" />
+        <option value="$PROJECT_DIR$/assests/users/users.html" />
+        <option value="$PROJECT_DIR$/assests/pages/pagesCtrl.js" />
+        <option value="$PROJECT_DIR$/file_handler/page_handler/page_response_handler.js" />
+        <option value="$PROJECT_DIR$/routes/ads_routes.js" />
+        <option value="$PROJECT_DIR$/assests/js/dataService.js" />
+        <option value="$PROJECT_DIR$/assests/ads/adsCtrl.js" />
+        <option value="$PROJECT_DIR$/file_handler/ads_handler/ads_response_handler.js" />
         <option value="$PROJECT_DIR$/assests/pages/pages.html" />
         <option value="$PROJECT_DIR$/assests/ads/ads.html" />
-        <option value="$PROJECT_DIR$/assests/users/users.html" />
-        <option value="$PROJECT_DIR$/assests/addUser/addUser.js" />
-        <option value="$PROJECT_DIR$/assests/css/style.css" />
-        <option value="$PROJECT_DIR$/assests/app.js" />
-        <option value="$PROJECT_DIR$/assests/index.html" />
-        <option value="$PROJECT_DIR$/assests/js/dataService.js" />
-        <option value="$PROJECT_DIR$/assests/addUser/addUser.html" />
-        <option value="$PROJECT_DIR$/file_handler/user_handler/user_response_handler.js" />
-        <option value="$PROJECT_DIR$/assests/addUser/addUserCtrl.js" />
+        <option value="$PROJECT_DIR$/assests/login/loginCtrl.js" />
+        <option value="$PROJECT_DIR$/routes/page_routes.js" />
       </list>
     </option>
   </component>
@@ -238,7 +189,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -251,65 +202,11 @@
               <item name="Brolix" type="462c0819:PsiDirectoryNode" />
               <item name="assests" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Brolix" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Brolix" type="462c0819:PsiDirectoryNode" />
-              <item name="assests" type="462c0819:PsiDirectoryNode" />
-              <item name="addUser" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Brolix" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Brolix" type="462c0819:PsiDirectoryNode" />
-              <item name="assests" type="462c0819:PsiDirectoryNode" />
-              <item name="ads" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Brolix" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Brolix" type="462c0819:PsiDirectoryNode" />
-              <item name="assests" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Brolix" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Brolix" type="462c0819:PsiDirectoryNode" />
-              <item name="assests" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Brolix" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Brolix" type="462c0819:PsiDirectoryNode" />
-              <item name="assests" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Brolix" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Brolix" type="462c0819:PsiDirectoryNode" />
-              <item name="file_handler" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Brolix" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Brolix" type="462c0819:PsiDirectoryNode" />
-              <item name="file_handler" type="462c0819:PsiDirectoryNode" />
-              <item name="mongo_handler" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Brolix" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Brolix" type="462c0819:PsiDirectoryNode" />
-              <item name="file_handler" type="462c0819:PsiDirectoryNode" />
-              <item name="mongo_handler" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Brolix" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Brolix" type="462c0819:PsiDirectoryNode" />
-              <item name="file_handler" type="462c0819:PsiDirectoryNode" />
-              <item name="user_handler" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -322,7 +219,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="add_unversioned_files" value="$PROJECT_DIR$/js/password.js&#10;true" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/assests/login/loginCtrl.js&#10;/home/administrator/WebstormProjects/Brolix/assests/addUser/addUser.html&#10;/home/administrator/WebstormProjects/Brolix/assests/js/dataService.js&#10;/home/administrator/WebstormProjects/Brolix/assests/index.html&#10;/home/administrator/WebstormProjects/Brolix/assests/login/login.html&#10;/home/administrator/WebstormProjects/Brolix/assests/pages/pagesCtrl.js&#10;true&#10;/home/administrator/WebstormProjects/Brolix/assests/users/users.html&#10;/home/administrator/WebstormProjects/Brolix/assests/addUser/addUserCtrl.js&#10;/home/administrator/WebstormProjects/Brolix/assests/users/usersCtrl.js&#10;/home/administrator/WebstormProjects/Brolix/js/password.js" />
     <property name="SearchEverywhereHistoryKey" value="user&#9;FILE&#9;file:///home/administrator/WebstormProjects/Brolix/routes/user_routes.js" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
@@ -382,23 +279,35 @@
       <workItem from="1504671411826" duration="21791000" />
       <workItem from="1504695922597" duration="385000" />
       <workItem from="1504698297923" duration="11191000" />
-      <workItem from="1504757471766" duration="31762000" />
+      <workItem from="1504757471766" duration="40465000" />
+      <workItem from="1504843753841" duration="30483000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218109000" />
+    <option name="totallyTimeSpent" value="257295000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="41" y="-4" width="1639" height="1054" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19183168" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -407,7 +316,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -448,21 +356,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/file_handler/mongo_handler/Models/User.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="32" column="9" lean-forward="false" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/user_routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2376">
-          <caret line="132" column="0" lean-forward="true" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/index.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/weak-map/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -504,13 +397,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/password.js" />
     <entry file="file://$PROJECT_DIR$/js/mail.js" />
     <entry file="file://$PROJECT_DIR$/package.json">
@@ -544,20 +430,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assests/pages/pagesCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assests/js/flip_box.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/file_handler/config/dev.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -572,85 +444,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/file_handler/mongo_handler/Models/Advertisement.js">
+    <entry file="file://$PROJECT_DIR$/file_handler/mongo_handler/Models/Admin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="15" column="14" lean-forward="false" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file_handler/common_files/js/js_functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file_handler/ads_handler/ads_response_handler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="132" column="0" lean-forward="true" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+        <state relative-caret-position="504">
+          <caret line="28" column="6" lean-forward="false" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/file_handler/mongo_handler/Models/Page.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/page_routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file_handler/page_handler/page_response_handler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18">
-          <caret line="68" column="23" lean-forward="false" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="36" column="10" lean-forward="true" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file_handler/common_files/js/js_routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/user_routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="25" column="15" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/ads_routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="34" column="22" lean-forward="true" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assests/pages/pages.html">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -658,113 +460,223 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assests/ads/ads.html">
+    <entry file="file://$PROJECT_DIR$/file_handler/mongo_handler/Models/User.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="251">
+          <caret line="46" column="6" lean-forward="true" selection-start-line="46" selection-start-column="6" selection-end-line="46" selection-end-column="6" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assests/ads/adsCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="2" lean-forward="true" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assests/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assests/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1674">
-          <caret line="93" column="35" lean-forward="false" selection-start-line="93" selection-start-column="35" selection-end-line="93" selection-end-column="35" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assests/js/dataService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assests/users/usersCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="48" column="14" lean-forward="true" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assests/users/users.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="227" column="21" lean-forward="true" selection-start-line="227" selection-start-column="21" selection-end-line="227" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assests/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="184" column="20" lean-forward="false" selection-start-line="184" selection-start-column="20" selection-end-line="184" selection-end-column="20" />
+        <state relative-caret-position="413">
+          <caret line="90" column="20" lean-forward="true" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/file_handler/mongo_handler/Models/User.js">
+    <entry file="file://$PROJECT_DIR$/assests/js/flip_box.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="37" column="6" lean-forward="true" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
+        <state relative-caret-position="324">
+          <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file_handler/common_files/js/js_functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="33" column="21" lean-forward="true" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assests/login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file_handler/user_handler/user_response_handler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1421">
+          <caret line="422" column="13" lean-forward="true" selection-start-line="422" selection-start-column="13" selection-end-line="422" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assests/addUser/addUser.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="95" column="109" lean-forward="false" selection-start-line="95" selection-start-column="109" selection-end-line="95" selection-end-column="109" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="-321">
+          <caret line="53" column="72" lean-forward="false" selection-start-line="53" selection-start-column="72" selection-end-line="53" selection-end-column="72" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/file_handler/user_handler/user_response_handler.js">
+    <entry file="file://$PROJECT_DIR$/file_handler/mongo_handler/Models/Page.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="34" column="49" lean-forward="false" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
+        <state relative-caret-position="216">
+          <caret line="12" column="64" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assests/addUser/addUserCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="34" lean-forward="false" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assests/users/usersCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file_handler/page_handler/page_response_handler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="376" column="27" lean-forward="false" selection-start-line="376" selection-start-column="27" selection-end-line="376" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file_handler/mongo_handler/Models/Advertisement.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assests/pages/pagesCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="47" column="63" lean-forward="true" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assests/js/dataService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file_handler/ads_handler/ads_response_handler.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+          <caret line="62" column="41" lean-forward="false" selection-start-line="62" selection-start-column="41" selection-end-line="62" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assests/ads/adsCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="36" column="23" lean-forward="true" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assests/users/users.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="33" column="27" lean-forward="false" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assests/ads/ads.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="61" column="61" lean-forward="false" selection-start-line="61" selection-start-column="61" selection-end-line="61" selection-end-column="61" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assests/pages/pages.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="28" lean-forward="true" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assests/login/loginCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="47" lean-forward="false" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/ads_routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/page_routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/user_routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="33" column="15" lean-forward="false" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file_handler/common_files/js/js_routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="26" column="16" lean-forward="false" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-72">
+          <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assests/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198">
+          <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assests/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="52" lean-forward="true" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
           <folding />
         </state>
       </provider>

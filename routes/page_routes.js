@@ -17,16 +17,20 @@ mongoose.connect(url, {
 
 routes.get('/', (req, res) => {
     res.status(200).json("connected")
-})
+});
 
 
 routes.post('/addPage',page_response_handler.addPage );
+
+routes.get('/getPages',page_response_handler.getPages);
 
 routes.put('/editPage',page_response_handler.editPage);
 
 routes.post('/blockPage',page_response_handler.blockPage);
 
 routes.delete('/removePage',page_response_handler.removePage);
+
+routes.get('/getPagesData',page_response_handler.getPagesData)
 
 routes.get('/createReport',page_response_handler.createReport);
 

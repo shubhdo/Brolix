@@ -1,7 +1,11 @@
 
 
-app.controller('usersCtrl',function ($scope,dataService,$document) {
+app.controller('usersCtrl',function ($scope,dataService,$document,$location) {
 
+    /*
+    if (dataService.name===null) {
+        $location.path()
+    }*/
     var saveData=null;
     $scope.blockUser=function () {
         console.log(saveData)
@@ -49,6 +53,8 @@ app.controller('usersCtrl',function ($scope,dataService,$document) {
             })
     };
 
+
+
     $scope.saveUser=function (user) {
         saveData=user
     }
@@ -76,6 +82,76 @@ app.controller('usersCtrl',function ($scope,dataService,$document) {
         }).catch(function (error) {
             console.log(error);
         })
+
+
+        dataService.getTotalUsers().then(function (response) {
+            console.log(response)
+            $scope.total_users=response.data.response[0].count;
+            console.log($scope.total_users);
+
+        }).catch(function (response) {
+            console.log(response)
+        })
+
+        dataService.getPersonalUsers().then(function (response) {
+            console.log(response)
+            $scope.personal_users=response.data.response[0].count;
+            console.log($scope.personal_users);
+
+
+        }).catch(function (response) {
+            console.log(response)
+        })
+
+        dataService.getBusinessUsers().then(function (response) {
+            console.log(response)
+            $scope.business_users=response.data.response[0].count;
+            console.log($scope.business_users);
+
+        }).catch(function (response) {
+            console.log(response)
+        })
+
+        dataService.getBLockedUsers().then(function (response) {
+            console.log(response)
+            $scope.blocked_users=response.data.response[0].count;
+            console.log($scope.blocked_users);
+
+        }).catch(function (response) {
+            console.log(response)
+        })
+
+
+        dataService.getTotalWinners().then(function (response) {
+            console.log(response)
+            $scope.total_winners=response.data.response[0].count;
+            console.log($scope.total_winners);
+
+        }).catch(function (response) {
+            console.log(response)
+        })
+
+        dataService.getCashWinners().then(function (response) {
+            console.log(response)
+            $scope.cash_winners=response.data.response[0].count;
+            console.log($scope.cash_winners);
+
+
+        }).catch(function (response) {
+            console.log(response)
+        })
+
+        dataService.getCouponWinners().then(function (response) {
+            console.log(response)
+            $scope.coupon_winners=response.data.response[0].count;
+            console.log($scope.coupon_winners);
+
+        }).catch(function (response) {
+            console.log(response)
+        })
     }
+
+
+
 
 });

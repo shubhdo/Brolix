@@ -45,9 +45,6 @@ const User = new Schema({
         type: Address,
         trim: true
     },
-    profile:{
-        type:String
-    },
     blocked:{
         type:Boolean,
         default:false

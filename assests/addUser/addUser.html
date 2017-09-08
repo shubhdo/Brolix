@@ -1,6 +1,6 @@
 <h2>Add User</h2>
 
-<div style="width: 400px;margin-left: 350px">
+<div style="width: 400px" class="center-block">
 
     <form name="adduser" autocomplete="off" style="font-size: 14px">
         <div class="form-group">
@@ -51,7 +51,7 @@
             Date of Birth
 
             <input type="date" name="dob" required id="dob1" ng-model="obj.dob" ng-required="true"
-                   onfocus="dateValidation()" class="form-control">
+                   class="form-control" min="1957-09-08" max="1999-09-08">
             <span
                     ng-show='adduser.dob.$dirty&&adduser.dob.$invalid||adduser.dob.$dirty&&adduser.dob.$error.pattern'>
         Please enter your valid Date of Birth

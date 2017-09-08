@@ -26,8 +26,9 @@ module.exports={
     dateValidation:function dateValidation(dob) {
         let date = new Date();
         let dateMax = date.getTime() - 1000 * 60 * 60 * 24 * 365.25 * 18;
-        let dateMin = 1000 * 60 * 60 * 24 * 365.25 * 60- date.getTime();
-
+        let dateMin =date.getTime()- 1000 * 60 * 60 * 24 * 365.25 * 60 ;
+        console.log(new Date(dateMax))
+        console.log(new Date(dateMin))
         let currentDate=new Date(dob).getTime();
 
         return currentDate > dateMin && currentDate < dateMax;

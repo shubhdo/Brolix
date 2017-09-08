@@ -24,6 +24,7 @@ routes.post('/addAds',ads_response_handler.addAds );
 
 routes.put('/editAds',ads_response_handler.editAds);
 
+routes.get('/getAds',ads_response_handler.getAds);
 
 routes.delete('/removePage',ads_response_handler.removeAds);
 
@@ -31,5 +32,8 @@ routes.get('/createReport',ads_response_handler.createReport);
 
 routes.post('/addViewed',ads_response_handler.addViewed);
 
+routes.get('/getWinnersData',ads_response_handler.getWinnersData);
+
+routes.get('/getAdsData',ads_response_handler.getAdsData);
 
 module.exports = routes;

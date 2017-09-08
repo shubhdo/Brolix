@@ -22,5 +22,8 @@ app.config(['$locationProvider', '$routeProvider', function ($locationProvider, 
         .when('/addUser', {
             templateUrl: 'addUser/addUser.html',
             controller: 'addUserCtrl'
-        }).otherwise({redirectTo: '/users'});
+        }).when('/login', {
+        templateUrl: 'login/login.html',
+        controller: 'loginCtrl'
+    }).otherwise({redirectTo: '/login'});
 }])

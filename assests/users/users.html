@@ -1,114 +1,42 @@
 <div class="wrapper">
-    <div class="col_third">
-        <div class="hover panel">
-            <div class="front">
-                <div class="box1">
-                    <p>Total Users</p>
-                </div>
-            </div>
-            <div class="back">
-                <div class="box2">
-                    <p>1000</p>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="hover panel" style="background-color: #00aeef;color: #ffffff">
+    <p>Total Users</p>
+    <p class="data">{{total_users || "0"}}</p>
 
-    <div class="col_third">
-        <div class="hover panel">
-            <div class="front">
-                <div class="box1">
-                    <p>Personal Users</p>
-                </div>
-            </div>
-            <div class="back">
-                <div class="box2">
-                    <p>500</p>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
+<div class="hover panel" style="background-color: #00b288;color: #ffffff">
+    <p>Personal Users</p>
+    <p class="data">{{personal_users || "0"}}</p>
+</div>
+<div class="hover panel"style="background-color: #ed1c24;color: #ffffff">
+    <p>Business Users</p>
+    <p class="data">{{business_users || "0"}}</p>
+</div>
+<div class="hover panel"style="background-color: #c69c6d;color: #ffffff">
+    <p>Total Winners</p>
+    <p class="data">{{total_winners || "0"}}</p>
+</div>
+<div class="hover panel"style="background-color: #2e3192;color: #ffffff">
+    <p>Cash Winners</p>
+    <p class="data">{{cash_winners || "0"}}</p>
+</div>
+<div class="hover panel"style="background-color: #a864a8;color: #ffffff">
+    <p>Coupon Winners </p>
+    <p class="data">{{coupon_winners|| "0" }}</p>
 
-    <div class="col_third end">
-        <div class="hover panel">
-            <div class="front">
-                <div class="box1">
-                    <p>Business Users</p>
-                </div>
-            </div>
-            <div class="back">
-                <div class="box2">
-                    <p>500</p>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 
-    <div class="col_third">
-        <div class="hover panel">
-            <div class="front">
-                <div class="box1">
-                    <p>Total Winners</p>
-                </div>
-            </div>
-            <div class="back">
-                <div class="box2">
-                    <p>50</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col_third">
-        <div class="hover panel">
-            <div class="front">
-                <div class="box1">
-                    <p>Cash Winners</p>
-                </div>
-            </div>
-            <div class="back">
-                <div class="box2">
-                    <p>15</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col_third end">
-        <div class="hover panel">
-            <div class="front">
-                <div class="box1">
-                    <p>Coupon Winners</p>
-                </div>
-            </div>
-            <div class="back">
-                <div class="box2">
-                    <p>35</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col_third ">
-        <div class="hover panel">
-            <div class="front">
-                <div class="box1">
-                    <p>Block Users</p>
-                </div>
-            </div>
-            <div class="back">
-                <div class="box2">
-                    <p>5</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="hover panel"style="background-color: #9e0039;color: #ffffff">
+    <p>Block Users</p>
+    <p class="data">{{blocked_users|| "0" }}</p>
+</div>
 </div>
 <div style="clear: both"></div>
 
 <input type="text" ng-model="strSearch.firstname" placeholder="Search By Name">
 
-<table class="table table-bordered table-hover table-condensed table-striped table-responsive col-lg-offset-3" style="width: auto;margin-top: 25px;font-size: 16px">
+<table class="table table-bordered table-hover table-condensed table-striped table-responsive col-lg-offset-3"
+       style="width: auto;margin-top: 25px;font-size: 16px">
     <tr>
         <td class="btn-primary">First Name</td>
         <td class="btn-primary">Last Name</td>
@@ -121,7 +49,7 @@
 
 
     </tr>
-    <tr ng-repeat="user in users|filter:strSearch track by $index">
+    <tr dir-paginate="user in users|itemsPerPage:5 |filter:strSearch track by $index">
         <td>{{user.firstname}}</td>
         <td>{{user.lastname}}</td>
         <td>{{user.email}}</td>
@@ -129,17 +57,16 @@
         <td>{{user.pages.length}}</td>
         <td>{{user.blocked}}</td>
 
-        <td ng-click="saveUser(user)" class="action" data-toggle="modal" data-target="#confirmation"><a href="" ></a>{{user.status}}</td>
+        <td ng-click="saveUser(user)" class="action" data-toggle="modal" data-target="#confirmation"><a href=""></a>{{user.status}}
+        </td>
 
         <td ng-click="editUser(user)" class="action" data-toggle="modal" data-target="#details"><a href="">Edit</a></td>
 
 
     </tr>
 </table>
-
-
-
-
+<dir-pagination-controls boundary-links="true"
+direction-links="true"></dir-pagination-controls>
 
 <div id="confirmation" role="dialog" class="modal fade" data-backdrop="false">
     <div class="modal-dialog">
@@ -152,7 +79,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="blockUser(user)">Yes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="blockUser(user)">Yes
+                </button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
 
             </div>
@@ -161,82 +89,87 @@
 </div>
 
 
-
 <div id="details" role="dialog" class="modal fade" data-backdrop="false">
     <div class="modal-dialog">
         <div class="modal-content" style="font-size: 15px">
             <div class="modal-content" style="font-size: 15px">
                 <div style="background-color: #286090;height: 30px"></div>
 
-            <h1 class="modal-title" style="font-size: 17px">Edit User Details</h1>
+                <h1 class="modal-title" style="font-size: 17px">Edit User Details</h1>
 
-            <div class="modal-body">
+                <div class="modal-body">
 
-                <form name="edit" autocomplete="off">
-                    <div class="form-group">
-                        First Name
-                        <input type="text" name="fname" required ng-model="obj.firstname" ng-pattern="/^[a-zA-Z]{3,30}$/"
-                               class="form-control">
-                        <span
-                                ng-show='edit.fname.$dirty&&edit.fname.$invalid||edit.fname.$dirty&&edit.fname.$error.pattern'>
+                    <form name="edit" autocomplete="off">
+                        <div class="form-group">
+                            First Name
+                            <input type="text" name="fname" required ng-model="obj.firstname"
+                                   ng-pattern="/^[a-zA-Z]{3,30}$/"
+                                   class="form-control">
+                            <span
+                                    ng-show='edit.fname.$dirty&&edit.fname.$invalid||edit.fname.$dirty&&edit.fname.$error.pattern'>
         Characters should be between 3 to 30
 
   </span>
-                    </div>
-                    <div class="form-group">
-                        Last Name
-                        <input type="text" name="lname" required ng-model="obj.lastname" ng-pattern="/^[a-zA-Z]{3,30}$/"
-                               class="form-control">
-                        <span
-                                ng-show='edit.lname.$dirty&&edit.lname.$invalid||edit.lname.$dirty&&edit.lname.$error.pattern'>
+                        </div>
+                        <div class="form-group">
+                            Last Name
+                            <input type="text" name="lname" required ng-model="obj.lastname"
+                                   ng-pattern="/^[a-zA-Z]{3,30}$/"
+                                   class="form-control">
+                            <span
+                                    ng-show='edit.lname.$dirty&&edit.lname.$invalid||edit.lname.$dirty&&edit.lname.$error.pattern'>
         Characters should be between 3 to 30
 
   </span>
-                    </div>
+                        </div>
 
-                    <div class="form-group">
-                        Contact Number
+                        <div class="form-group">
+                            Contact Number
 
-                        <input type="number" name="contact" required ng-model="obj.telephone_no" ng-pattern="/(7|8|9)\d{9}/"
-                               class="form-control">
-                        <span
-                                ng-show='edit.contact.$dirty&&edit.contact.$invalid||edit.contact.$dirty&&edit.contact.$error.pattern'>
+                            <input type="number" name="contact" required ng-model="obj.telephone_no"
+                                   ng-pattern="/(7|8|9)\d{9}/"
+                                   class="form-control">
+                            <span
+                                    ng-show='edit.contact.$dirty&&edit.contact.$invalid||edit.contact.$dirty&&edit.contact.$error.pattern'>
     Please enter 10 digits with nos starting with 7,8,9
   </span>
 
-                    </div>
-                    <div class="form-group">
-                        Country
+                        </div>
+                        <div class="form-group">
+                            Country
 
-                        <select id="country" ng-model="obj.country" required ng-focus="getData()" ng-click="getData()"
-                                ng-change="getStates(obj.country)" class="form-control"
-                        >
-                            <option value="">Please choose Country</option>
-
-
-                            <option ng-repeat="count in country">{{count.name}}</option>
-                        </select>
-
-                    </div>
-                    <div class="form-group">
-                        State
+                            <select id="country" ng-model="obj.country" required ng-focus="getData()"
+                                    ng-click="getData()"
+                                    ng-change="getStates(obj.country)" class="form-control"
+                            >
+                                <option value="">Please choose Country</option>
 
 
-                        <select id="state" required ng-disabled="!obj.country" ng-model="obj.state" class="form-control">
-                            <option value="">Please choose State</option>
-                            <option ng-repeat="stat in states">{{stat}}</option>
-                        </select>
-                    </div>
+                                <option ng-repeat="count in country">{{count.name}}</option>
+                            </select>
 
-                    <input type="submit" ng-disabled="edit.$invalid" ng-click="add(obj)" data-dismiss="modal" value="Edit user">
+                        </div>
+                        <div class="form-group">
+                            State
 
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                            <select id="state" required ng-disabled="!obj.country" ng-model="obj.state"
+                                    class="form-control">
+                                <option value="">Please choose State</option>
+                                <option ng-repeat="stat in states">{{stat}}</option>
+                            </select>
+                        </div>
+
+                        <input type="submit" ng-disabled="edit.$invalid" ng-click="add(obj)" data-dismiss="modal"
+                               value="Edit user">
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 

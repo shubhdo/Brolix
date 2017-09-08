@@ -1,4 +1,5 @@
 let User = require('../mongo_handler/Models/User')
+let Admin=require('../mongo_handler/Models/Admin')
 let common_js_functions = require('../common_files/js/js_functions')
 
 module.exports = {
@@ -12,7 +13,7 @@ module.exports = {
         let telephone_no = req.body.telephone_no;
         let gender = req.body.gender;
 
-        console.log("6666666666",req.body);
+        console.log("6666666666", req.body);
 
         if (firstname === undefined || !/^[A-Za-z]{2,20}$/.test(firstname)) {
             common_js_functions.responseHandler(req, response, "Please enter first name between 3-30 characters only")
@@ -75,8 +76,75 @@ module.exports = {
             }
         });
     },
+    login: (req, res) => {
+
+        let email = req.body.email;
+        let password = req.body.password;
+      /*
+        Admin.findOne({},(error,success)=> {
+            if (error) {
+                console.log(error)
+                res.status(500).send({response: "something failed"});
+
+            }
+            else {
+                if(success===null) {
+                    let admin=new Admin({
+                        email:"admin@mobiloitte.com",
+                        password:"Mobiloitte"
+                    });
+                    admin.save(function (err,succ) {
+                       if (err)
+                       {
+                           console.log(err)
+                           res.status(500).send({response: "something failed"});
+
+                       }
+                       else {
+                           console.log(succ);
+
+
+                       }
+                    })
+                }
+                else {
+
+                }
+            }
+        })*/
+
+        Admin.findOne({email: email}, {password: 1,name:1,telephone_no:1}, (err, result) => {
+            if (err) {
+                console.log(err);
+                res.status(500).send({error: "something failed"});
+            }
+
+            else {
+                if (result === null) {
+                    res.status(404).send({error: "Email does not exist. Please register"});
+                }
+                else {
+                    if (password === result.password) {
+                        console.log(result);
+                        res.status(200).json({
+                            responseCode: 200,
+                            responseMessage: 'User has succesfully login',
+                            result: result
+                        });
+
+                    }
+                    else {
+                        res.status(404).send({error: "Password is incorrect"});
+
+                    }
+
+                }
+            }
+        })
+
+    },
     editUser: (req, res) => {
-        console.log("777777777777",req.body)
+        console.log("777777777777", req.body)
         let criteria = req.body._id;
 
         let firstname = req.body.firstname;
@@ -137,6 +205,129 @@ module.exports = {
 
 
     },
+    getUserData: (req, res) => {
+        let personal = req.query.personal;
+        let business = req.query.business;
+        let blocked  = req.query.blocked;
+        if (personal == 1) {
+            User.aggregate({
+                    $match: {
+                        pages: []
+                    }
+                },
+                {
+                    $group: {
+                        _id: null,
+                        count: {$sum: 1}
+                    }
+                }, (err, success) => {
+                    if (err) {
+                        console.log(err);
+                        res.status(400).send({
+                            "responseCode": 400,
+                            "responseMessage": "Unsuccessful",
+                            "response": err.message
+                        });
+                    }
+                    else {
+                        console.log("**************", success);
+                        res.status(200).send({
+                            "responseCode": 200,
+                            "responseMessage": "Successful",
+                            "response": success
+                        });
+                    }
+                })
+        }
+        else if (business == 1) {
+            User.aggregate({
+                    $match: {
+                        pages: {$exists: true, $nin: [[]]}
+                    }
+                },
+                {
+                    $group: {
+                        _id: null,
+                        count: {$sum: 1}
+                    }
+                }, (err, success) => {
+                    if (err) {
+                        console.log(err);
+                        res.status(400).send({
+                            "responseCode": 400,
+                            "responseMessage": "Unsuccessful",
+                            "response": err.message
+                        });
+                    }
+                    else {
+                        console.log("**************", success);
+                        res.status(200).send({
+                            "responseCode": 200,
+                            "responseMessage": "Successful",
+                            "response": success
+                        });
+                    }
+                })
+        }
+        else if(blocked==1) {
+            User.aggregate({
+              $match:{
+                  blocked:true
+              }
+                },
+                {
+                    $group: {
+                        _id: null,
+                        count: {$sum: 1}
+                    }
+                }, (err, success) => {
+                    if (err) {
+                        console.log(err);
+                        res.status(400).send({
+                            "responseCode": 400,
+                            "responseMessage": "Unsuccessful",
+                            "response": err.message
+                        });
+                    }
+                    else {
+                        console.log("**************", success);
+                        res.status(200).send({
+                            "responseCode": 200,
+                            "responseMessage": "Successful",
+                            "response": success
+                        });
+                    }
+                })
+        }
+        else {
+            User.aggregate(
+                {
+                    $group: {
+                        _id: null,
+                        count: {$sum: 1}
+                    }
+                }, (err, success) => {
+                    if (err) {
+                        console.log(err);
+                        res.status(400).send({
+                            "responseCode": 400,
+                            "responseMessage": "Unsuccessful",
+                            "response": err.message
+                        });
+                    }
+                    else {
+                        console.log("**************", success);
+                        res.status(200).send({
+                            "responseCode": 200,
+                            "responseMessage": "Successful",
+                            "response": success
+                        });
+                    }
+                })
+        }
+
+
+    },
     getUsers: (req, res) => {
         User.find({}, (err, success) => {
             if (err) {
@@ -187,28 +378,28 @@ module.exports = {
                 else {
                     if (success.blocked) {
                         User.findOneAndUpdate({email: emailCriteria}, {blocked: false}, {new: true}, (err, succeed) => {
-                                if(err) {
-                                    console.log(err);
-                                    res.status(400).send({
-                                        "responseCode": 400,
-                                        "responseMessage": "Unsuccessful",
-                                        "response": err.message
-                                    });
-                                }
-                                else {
-                                    console.log(succeed);
-                                    res.status(200).send({
-                                        "responseCode": 200,
-                                        "responseMessage": "Successful",
-                                        "response": succeed
-                                    });
-                                }
+                            if (err) {
+                                console.log(err);
+                                res.status(400).send({
+                                    "responseCode": 400,
+                                    "responseMessage": "Unsuccessful",
+                                    "response": err.message
+                                });
+                            }
+                            else {
+                                console.log(succeed);
+                                res.status(200).send({
+                                    "responseCode": 200,
+                                    "responseMessage": "Successful",
+                                    "response": succeed
+                                });
+                            }
                         })
                     }
                     else {
                         User.findOneAndUpdate({email: emailCriteria}, {blocked: true}, {new: true}, (err, succeed) => {
 
-                            if(err) {
+                            if (err) {
                                 console.log(err);
                                 res.status(400).send({
                                     "responseCode": 400,

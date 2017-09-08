@@ -5,6 +5,8 @@ app.controller('addUserCtrl',function ($scope,dataService) {
             console.log(response.data.response)
             if (response.data.responseCode===200) {
                 alert("Successfully Added")
+                $scope.obj={};
+                $scope.adduser.$setPristine(true)
             }
             else {
                 alert(response.message)
