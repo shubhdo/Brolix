@@ -1,5 +1,6 @@
 const express = require('express')
 const body_parser = require('body-parser');
+const morgan=require('morgan')
 const path=require('path')
 let user_routes=require('./routes/user_routes');
 let page_routes=require('./routes/page_routes');
@@ -12,6 +13,7 @@ let port = process.env.PORT || config.server_port;
 
 const app = express();
 
+app.use(morgan('dev'))
 app.use(body_parser.json());
 
 app.use(body_parser.urlencoded({extended: true}));
@@ -30,9 +32,13 @@ next();
 });
 
 
+
 /*
+
 app.get('*',common_js_files.serveAngularPage)
 */
+
+
 
 app.use('/',user_routes);
 app.use('/',page_routes);

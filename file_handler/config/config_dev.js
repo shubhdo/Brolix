@@ -12,5 +12,8 @@ db.once('open', function () {
 
 module.exports= {
     mongo_url:"mongodb://localhost:27017/brolix",
-    server_port:3000
+    server_port:3000,
+    auto_gen_email:"admin@mobiloitte.com",
+    auto_gen_password:"Mobiloitte",
+    saltRounds:10
 };

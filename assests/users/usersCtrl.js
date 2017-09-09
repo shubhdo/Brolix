@@ -2,10 +2,11 @@
 
 app.controller('usersCtrl',function ($scope,dataService,$document,$location) {
 
-    /*
+
     if (dataService.name===null) {
-        $location.path()
-    }*/
+        $location.path('/login')
+    }
+
     var saveData=null;
     $scope.blockUser=function () {
         console.log(saveData)

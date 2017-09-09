@@ -24,8 +24,11 @@ module.exports= {
             "response": data
         });
     },
+
+
+
     serveAngularPage:(req,res)=> {
-     res.sendFile(path.join(__dirname+"/../../../assests/index.html"))
-        console.log(path.join(__dirname+"/../../../assests/index.html"))
+     res.sendFile(path.join(__dirname+"/../../../assests/home/login.html"))
+        console.log(path.join(__dirname+"/../../../assests/home/login.html"))
     }
 }

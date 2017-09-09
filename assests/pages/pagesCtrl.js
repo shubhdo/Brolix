@@ -1,7 +1,7 @@
 app.controller('pagesCtrl',function ($scope,dataService,$location,$document) {
-    /*if (dataService.name===null) {
+    if (dataService.name===null) {
         $location.path('/login')
-    }*/
+    }
 
 
     var saveData=null;

@@ -1,7 +1,18 @@
 'use strict';
 
-angular.module('myApp').controller('loginCtrl', ['$scope','dataService','$location',function (scope,dataService,location) {
-scope.myStyle={"display":"none"};
+app.controller('loginCtrl', ['$scope','dataService','$location','toastr',function (scope,dataService,location,toastr) {
+    if (dataService.name===null) {
+        location.path('/login')
+    }
+    scope.logOut=function () {
+        toastr.info('Called')
+        location.path('/login')
+        dataService.name=null;
+
+    }
+scope.myStyle={"display":"block"};
+
+
     scope.loginForm = function (login) {
 
 
@@ -14,7 +25,8 @@ scope.myStyle={"display":"none"};
                     console.log("9999999999",response)
                     console.log("3333333333",scope.myStyle);
                     location.path('/users');
-                    alert('You have successfully Logged In');
+                    toastr.success('You have successfully Logged In');
+
                 }
                 else {
                     alert(response.data.error)
@@ -23,7 +35,6 @@ scope.myStyle={"display":"none"};
             .catch(function (err) {
                 console.log(err)
                 alert(err.data.error)
-                location.path('/addCompany');
 
             });
         console.log(scope.obj3);

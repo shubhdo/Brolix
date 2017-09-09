@@ -14,19 +14,7 @@ const Admin = new Schema({
     password:{
         type:String,
         required:[true,'Please enter the password']
-    },
-    name: {
-        type: String,
-        required: [true, 'Please enter the last name'],
-        match: [/^[A-Za-z ]{2,30}$/, 'Only alphabets are allowed'],
-        trim: true
-    },
-    telephone_no: {
-        type: Number,
-        required: [true, 'Please enter the contact no'],
-        match: [/^[0-9]{10,14}$/, 'Only numeric value is allowed(10-14 digits only']
-
-    },
+    }
 
 });
 

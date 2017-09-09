@@ -1,5 +1,8 @@
-let User = require('../mongo_handler/Models/User')
-let Admin=require('../mongo_handler/Models/Admin')
+let User = require('../mongo_handler/Models/User');
+let Admin=require('../mongo_handler/Models/Admin');
+let config=require('../config/config_dev');
+let bcrypt=require('bcrypt');
+let jwt=require('jsonwebtoken');
 let common_js_functions = require('../common_files/js/js_functions')
 
 module.exports = {
@@ -80,7 +83,7 @@ module.exports = {
 
         let email = req.body.email;
         let password = req.body.password;
-      /*
+
         Admin.findOne({},(error,success)=> {
             if (error) {
                 console.log(error)
@@ -89,58 +92,84 @@ module.exports = {
             }
             else {
                 if(success===null) {
-                    let admin=new Admin({
-                        email:"admin@mobiloitte.com",
-                        password:"Mobiloitte"
-                    });
-                    admin.save(function (err,succ) {
-                       if (err)
-                       {
-                           console.log(err)
-                           res.status(500).send({response: "something failed"});
 
-                       }
-                       else {
-                           console.log(succ);
+                    bcrypt.hash(config.auto_gen_password,config.saltRounds,(err,hash)=> {
+                        if (err)
+                        {
+                            console.log(err);
+
+                        }
+                        else {
+                            console.log(hash)
+                            let admin=new Admin({
+                                email:config.auto_gen_email,
+                                password:hash
+                            });
+                            admin.save(function (err,succ) {
+                                if (err)
+                                {
+                                    console.log(err)
+                                    res.status(500).send({response: "something failed"});
+
+                                }
+                                else {
+                                    console.log(succ);
+                                    res.status(200).json({
+                                        responseCode: 200,
+                                        responseMessage: 'User Created',
+                                        result: succ
+                                    });
 
 
-                       }
+                                }
+                            })
+
+                        }
                     })
+
                 }
                 else {
+                    Admin.findOne({email: email}, {password: 1,name:1,telephone_no:1}, (err, result) => {
+                        if (err) {
+                            console.log(err);
+                            res.status(500).send({error: "something failed"});
+                        }
 
-                }
-            }
-        })*/
+                        else {
+                            if (result === null) {
+                                res.status(404).send({error: "Email does not exist. Please register"});
+                            }
+                            else {
+                                /*if (password === result.password) {*/
+                                bcrypt.compare(password,result.password,(error,succeed)=> {
+                                    if (error) {
+                                       console.log(error);
+                                        res.status(400).json({
+                                            responseCode: 400,
+                                            responseMessage: 'Password incorrect',
+                                            result: error
+                                        });
+                                    }
+                                    else {
+                                        console.log(succeed);
 
-        Admin.findOne({email: email}, {password: 1,name:1,telephone_no:1}, (err, result) => {
-            if (err) {
-                console.log(err);
-                res.status(500).send({error: "something failed"});
-            }
 
-            else {
-                if (result === null) {
-                    res.status(404).send({error: "Email does not exist. Please register"});
-                }
-                else {
-                    if (password === result.password) {
-                        console.log(result);
-                        res.status(200).json({
-                            responseCode: 200,
-                            responseMessage: 'User has succesfully login',
-                            result: result
-                        });
+                                        res.status(200).json({
+                                            responseCode: 200,
+                                            responseMessage: 'User has succesfully login',
+                                            result: succeed
+                                        });
+                                    }
+                                })
 
-                    }
-                    else {
-                        res.status(404).send({error: "Password is incorrect"});
-
-                    }
-
+                            }
+                        }
+                    })
                 }
             }
         })
+
+
 
     },
     editUser: (req, res) => {

@@ -5,16 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon index.js "
   },
   "dependencies": {
     "async": "^2.5.0",
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.17.2",
     "country-list": "^1.1.0",
     "countryjs": "^1.8.0",
     "express": "^4.15.3",
     "express-validator": "^3.2.1",
     "indicative": "^2.2.1",
+    "jsonwebtoken": "^8.0.0",
     "jsreport": "^1.8.2",
     "jsreport-contrib-mongodb": "0.0.2",
     "mongoose": "^4.11.5",
@@ -22,6 +24,9 @@
     "nodemailer": "^4.1.0",
     "nodemon": "^1.11.0",
     "paperwork": "^2.1.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.8.2"
   },
   "keywords": [],
   "author": "",

@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-var app = angular.module('myApp', ['ngRoute', 'angularUtils.directives.dirPagination'])
+var app = angular.module('myApp', ['ngRoute', 'angularUtils.directives.dirPagination','toastr'])
 
 app.config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!' +

@@ -15,6 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css.map">
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -61,6 +62,9 @@
     <li>
         <a style="cursor:pointer;"href="#!/addUser" >ADD USER</a>
     </li>
+    <li>
+        <a style="cursor:pointer;" ng-click="logOut()">Log Out</a>
+    </li>
     <!--  <li>
          <a>BLOCK USER</a>
      </li>
@@ -84,13 +88,17 @@
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/material-angular-paging/build/dist.min.js"></script>
 <script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
+<script src="bower_components/angular-toastr/dist/angular-toastr.js"></script>
+
+<script src="bower_components/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
 <script src="js/flip_box.js"></script>
 <script src="users/usersCtrl.js"></script>
 <script src="ads/adsCtrl.js"></script>
 <script src="pages/pagesCtrl.js"></script>
-<script SRC="addUser/addUserCtrl.js"></script>
+<script src="addUser/addUserCtrl.js"></script>
 <script src="login/loginCtrl.js"></script>
 <script src="js/dataService.js"></script>
 </body>

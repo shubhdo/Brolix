@@ -1,7 +1,7 @@
 app.controller('adsCtrl',function (dataService,$location,$scope,$document) {
-   /* if (dataService.name===null) {
+   if (dataService.name===null) {
         $location.path('/login')
-    }*/
+    }
     dataService.getTotalAds().then(function (response) {
         console.log(response)
         $scope.total_ads=response.data.response[0].count;
