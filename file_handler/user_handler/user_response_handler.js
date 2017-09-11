@@ -1,8 +1,8 @@
 let User = require('../mongo_handler/Models/User');
-let Admin=require('../mongo_handler/Models/Admin');
-let config=require('../config/config_dev');
-let bcrypt=require('bcrypt');
-let jwt=require('jsonwebtoken');
+let Admin = require('../mongo_handler/Models/Admin');
+let config = require('../config/config_dev');
+let bcrypt = require('bcrypt');
+let jwt = require('jsonwebtoken');
 let common_js_functions = require('../common_files/js/js_functions')
 
 module.exports = {
@@ -84,30 +84,28 @@ module.exports = {
         let email = req.body.email;
         let password = req.body.password;
 
-        Admin.findOne({},(error,success)=> {
+        Admin.findOne({}, (error, success) => {
             if (error) {
                 console.log(error)
                 res.status(500).send({response: "something failed"});
 
             }
             else {
-                if(success===null) {
+                if (success === null) {
 
-                    bcrypt.hash(config.auto_gen_password,config.saltRounds,(err,hash)=> {
-                        if (err)
-                        {
+                    bcrypt.hash(config.auto_gen_password, config.saltRounds, (err, hash) => {
+                        if (err) {
                             console.log(err);
 
                         }
                         else {
                             console.log(hash)
-                            let admin=new Admin({
-                                email:config.auto_gen_email,
-                                password:hash
+                            let admin = new Admin({
+                                email: config.auto_gen_email,
+                                password: hash
                             });
-                            admin.save(function (err,succ) {
-                                if (err)
-                                {
+                            admin.save(function (err, succ) {
+                                if (err) {
                                     console.log(err)
                                     res.status(500).send({response: "something failed"});
 
@@ -129,7 +127,7 @@ module.exports = {
 
                 }
                 else {
-                    Admin.findOne({email: email}, {password: 1,name:1,telephone_no:1}, (err, result) => {
+                    Admin.findOne({email: email}, {password: 1, name: 1, telephone_no: 1}, (err, result) => {
                         if (err) {
                             console.log(err);
                             res.status(500).send({error: "something failed"});
@@ -141,9 +139,9 @@ module.exports = {
                             }
                             else {
                                 /*if (password === result.password) {*/
-                                bcrypt.compare(password,result.password,(error,succeed)=> {
+                                bcrypt.compare(password, result.password, (error, succeed) => {
                                     if (error) {
-                                       console.log(error);
+                                        console.log(error);
                                         res.status(400).json({
                                             responseCode: 400,
                                             responseMessage: 'Password incorrect',
@@ -152,7 +150,6 @@ module.exports = {
                                     }
                                     else {
                                         console.log(succeed);
-
 
                                         res.status(200).json({
                                             responseCode: 200,
@@ -168,7 +165,6 @@ module.exports = {
                 }
             }
         })
-
 
 
     },
@@ -237,7 +233,7 @@ module.exports = {
     getUserData: (req, res) => {
         let personal = req.query.personal;
         let business = req.query.business;
-        let blocked  = req.query.blocked;
+        let blocked = req.query.blocked;
         if (personal == 1) {
             User.aggregate({
                     $match: {
@@ -298,11 +294,11 @@ module.exports = {
                     }
                 })
         }
-        else if(blocked==1) {
+        else if (blocked == 1) {
             User.aggregate({
-              $match:{
-                  blocked:true
-              }
+                    $match: {
+                        blocked: true
+                    }
                 },
                 {
                     $group: {
@@ -358,24 +354,97 @@ module.exports = {
 
     },
     getUsers: (req, res) => {
-        User.find({}, (err, success) => {
-            if (err) {
-                console.log(err);
-                res.status(400).send({
-                    "responseCode": 400,
-                    "responseMessage": "Unsuccessful",
-                    "response": err.message
-                });
-            }
-            else {
-                console.log("**************", success);
-                res.status(200).send({
-                    "responseCode": 200,
-                    "responseMessage": "Successful",
-                    "response": success
-                });
-            }
-        })
+
+        let personal=req.query.personal;
+        let business=req.query.business;
+        let blocked=req.query.blocked;
+        console.log(personal);
+        console.log(business);
+
+        if (personal==1) {
+            User.find({pages:[]}, (err, success) => {
+                if (err) {
+                    console.log(err);
+                    res.status(400).send({
+                        "responseCode": 400,
+                        "responseMessage": "Unsuccessful",
+                        "response": err.message
+                    });
+                }
+                else {
+                    console.log("**************", success);
+                    res.status(200).send({
+                        "responseCode": 200,
+                        "responseMessage": "Successful",
+                        "response": success
+                    });
+                }
+            })
+        }
+        else if(business==1) {
+
+
+            User.find({pages:{$not:{$size: 0}}}, (err, success) => {
+                if (err) {
+                    console.log(err);
+                    res.status(400).send({
+                        "responseCode": 400,
+                        "responseMessage": "Unsuccessful",
+                        "response": err.message
+                    });
+                }
+                else {
+                    console.log("**************", success);
+                    res.status(200).send({
+                        "responseCode": 200,
+                        "responseMessage": "Successful",
+                        "response": success
+                    });
+                }
+            })
+
+        }
+
+        else if(blocked==1) {
+            User.find({blocked:true}, (err, success) => {
+                if (err) {
+                    console.log(err);
+                    res.status(400).send({
+                        "responseCode": 400,
+                        "responseMessage": "Unsuccessful",
+                        "response": err.message
+                    });
+                }
+                else {
+                    console.log("**************", success);
+                    res.status(200).send({
+                        "responseCode": 200,
+                        "responseMessage": "Successful",
+                        "response": success
+                    });
+                }
+            })
+        }
+        else {
+            User.find({}, (err, success) => {
+                if (err) {
+                    console.log(err);
+                    res.status(400).send({
+                        "responseCode": 400,
+                        "responseMessage": "Unsuccessful",
+                        "response": err.message
+                    });
+                }
+                else {
+                    console.log("**************", success);
+                    res.status(200).send({
+                        "responseCode": 200,
+                        "responseMessage": "Successful",
+                        "response": success
+                    });
+                }
+            })
+        }
 
     },
     blockUser: (req, res) => {

@@ -1,21 +1,27 @@
 <div class="wrapper">
-    <div class="hover panel" style="background-color: #00aeef;color: #ffffff">
+    <div class="hover panel" style="background-color: #00aeef;color: #ffffff" ng-click="getAd()">
         <p>Total Ads</p>
         <p class="data">{{total_ads||"0"}}</p>
+        <span class="div_button" ng-click="getAd()">Show</span>
+
 
     </div>
-<div class="hover panel" style="background-color: #00b288;color: #ffffff">
+<div class="hover panel" style="background-color: #00b288;color: #ffffff" ng-click="getActiveAd()">
     <p>Active Ads</p>
     <p class="data">{{active_ads||"0"}}</p>
+    <span class="div_button" ng-click="getActiveAd()">Show</span>
+
 
 </div>
-<div class="hover panel" style="background-color: #ed1c24;color: #ffffff">
+<div class="hover panel" style="background-color: #ed1c24;color: #ffffff" ng-click="getExpiredAd()">
     <p>Expired Ads</p>
     <p class="data">{{expired_ads||"0"}}</p>
+    <span class="div_button" ng-click="getExpiredAd()">Show</span>
+
 
 </div>
 </div>
-
+<div id="dataTable" ng-show="displayed">
 <input type="text" ng-model="strSearch.description" placeholder="Search By Description" style="display:block;margin-left: 600px ">
 
 <table class="table table-bordered table-hover table-condensed table-striped table-responsive col-lg-offset-4"
@@ -40,7 +46,7 @@
 </table>
 <dir-pagination-controls boundary-links="true"
                          direction-links="true"></dir-pagination-controls>
-
+</div>
 
 <div id="details" role="dialog" class="modal fade" data-backdrop="false">
     <div class="modal-dialog">

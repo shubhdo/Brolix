@@ -1,42 +1,51 @@
 <div class="wrapper">
-<div class="hover panel" style="background-color: #00aeef;color: #ffffff">
+<div class="hover panel" style="background-color: #00aeef;color: #ffffff" >
     <p>Total Users</p>
     <p class="data">{{total_users || "0"}}</p>
-
+    <span class="div_button" ng-click="getTotalUser()">Show</span>
 </div>
-<div class="hover panel" style="background-color: #00b288;color: #ffffff">
+<div class="hover panel" style="background-color: #00b288;color: #ffffff" ng-click="getPersonalUser()">
     <p>Personal Users</p>
     <p class="data">{{personal_users || "0"}}</p>
+    <span class="div_button" ng-click="getPersonalUser()">Show</span>
+
 </div>
-<div class="hover panel"style="background-color: #ed1c24;color: #ffffff">
+<div class="hover panel"style="background-color: #ed1c24;color: #ffffff" ng-click="getBusinessUser()">
     <p>Business Users</p>
     <p class="data">{{business_users || "0"}}</p>
+    <span class="div_button" ng-click="getBusinessUser()">Show</span>
+
 </div>
-<div class="hover panel"style="background-color: #c69c6d;color: #ffffff">
+<div class="hover panel nocontent"style="background-color: #c69c6d;color: #ffffff">
     <p>Total Winners</p>
     <p class="data">{{total_winners || "0"}}</p>
+
 </div>
-<div class="hover panel"style="background-color: #2e3192;color: #ffffff">
+<div class="hover panel nocontent"style="background-color: #2e3192;color: #ffffff">
     <p>Cash Winners</p>
     <p class="data">{{cash_winners || "0"}}</p>
+
 </div>
-<div class="hover panel"style="background-color: #a864a8;color: #ffffff">
+<div class="hover panel nocontent"style="background-color: #a864a8;color: #ffffff">
     <p>Coupon Winners </p>
     <p class="data">{{coupon_winners|| "0" }}</p>
 
+
 </div>
 
-    <div class="hover panel"style="background-color: #9e0039;color: #ffffff">
+    <div class="hover panel"style="background-color: #9e0039;color: #ffffff" ng-click="getBlockedUser()">
     <p>Block Users</p>
     <p class="data">{{blocked_users|| "0" }}</p>
-</div>
+        <span class="div_button" ng-click=getBlockedUser()">Show</span>
+
+    </div>
 </div>
 <div style="clear: both"></div>
-
+<div id="dataTables" ng-show="displayed">
 <input type="text" ng-model="strSearch.firstname" placeholder="Search By Name">
 
 <table class="table table-bordered table-hover table-condensed table-striped table-responsive col-lg-offset-3"
-       style="width: auto;margin-top: 25px;font-size: 16px">
+       style="width: auto;margin-top: 25px;font-size: 16px" >
     <tr>
         <td class="btn-primary">First Name</td>
         <td class="btn-primary">Last Name</td>
@@ -67,7 +76,7 @@
 </table>
 <dir-pagination-controls boundary-links="true"
 direction-links="true"></dir-pagination-controls>
-
+</div>
 <div id="confirmation" role="dialog" class="modal fade" data-backdrop="false">
     <div class="modal-dialog">
         <div class="modal-content" style="font-size: 15px">

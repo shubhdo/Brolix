@@ -30,6 +30,10 @@ const User = new Schema({
         type: Date,
         required: [true, 'Please enter DOB'],
     },
+    brolix:{
+      type:Number,
+      min:0
+    },
     telephone_no: {
         type: Number,
         required: [true, 'Please enter the contact no'],

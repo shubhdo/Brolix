@@ -1,9 +1,7 @@
 app.controller('pagesCtrl',function ($scope,dataService,$location,$document) {
-    if (dataService.name===null) {
+   /* if (dataService.name===null) {
         $location.path('/login')
-    }
-
-
+    }*/
     var saveData=null;
     $scope.blockPage=function () {
         console.log(saveData)
@@ -26,20 +24,10 @@ app.controller('pagesCtrl',function ($scope,dataService,$location,$document) {
         saveData=page
     }
 
-    $scope.add=function (data) {
-        dataService.editPage(data).then(function (response) {
-            console.log(response);
-        }).catch(function (response) {
-            console.log(response);
-        })
-    }
-
-
-    $document.ready(function () {
-        getData()
-    })
-
-    function getData() {
+    $scope.getTotalPage=function () {
+        if ($scope.displayed)
+            $scope.displayed=!$scope.displayed;
+        $scope.displayed=!$scope.displayed
         dataService.getPages().then(function (response) {
             console.log("called",response);
             $scope.pages=response.data.response
@@ -57,8 +45,91 @@ app.controller('pagesCtrl',function ($scope,dataService,$location,$document) {
         }).catch(function (response) {
             console.log(response);
         })
+    }
+
+    $scope.getUnpublishedPage=function () {
+        if ($scope.displayed)
+            $scope.displayed=!$scope.displayed;
+        $scope.displayed=!$scope.displayed
+        dataService.getUnpublishedPage().then(function (response) {
+            console.log("called",response);
+            $scope.pages=response.data.response
+            for (var i=0;i<response.data.response.length;i++)
+            {
+                console.log(response.data.response[i].blocked);
+                if(response.data.response[i].blocked) {
+                    $scope.pages[i].status="Unblock"
+                }
+                else {
+                    $scope.pages[i].status="Block"
+
+                }
+            }
+        }).catch(function (response) {
+            console.log(response);
+        })
+    }
+
+    $scope.getBlockedPage=function () {
+        if ($scope.displayed)
+            $scope.displayed=!$scope.displayed;
+        $scope.displayed=!$scope.displayed
+        dataService.getBlockedPage().then(function (response) {
+            console.log("called",response);
+            $scope.pages=response.data.response
+            for (var i=0;i<response.data.response.length;i++)
+            {
+                console.log(response.data.response[i].blocked);
+                if(response.data.response[i].blocked) {
+                    $scope.pages[i].status="Unblock"
+                }
+                else {
+                    $scope.pages[i].status="Block"
+
+                }
+            }
+        }).catch(function (response) {
+            console.log(response);
+        })
+    }
+
+    $scope.getRemovedPage=function () {
+        if ($scope.displayed)
+            $scope.displayed=!$scope.displayed;
+        $scope.displayed=!$scope.displayed
+        dataService.getRemovedPage().then(function (response) {
+            console.log("called",response);
+            $scope.pages=response.data.response
+            for (var i=0;i<response.data.response.length;i++)
+            {
+                console.log(response.data.response[i].blocked);
+                if(response.data.response[i].blocked) {
+                    $scope.pages[i].status="Unblock"
+                }
+                else {
+                    $scope.pages[i].status="Block"
+
+                }
+            }
+        }).catch(function (response) {
+            console.log(response);
+        })
+    }
+
+    $scope.add=function (data) {
+        dataService.editPage(data).then(function (response) {
+            console.log(response);
+        }).catch(function (response) {
+            console.log(response);
+        })
+    }
 
 
+    $document.ready(function () {
+        getData()
+    })
+
+    function getData() {
 
         dataService.getTotalPages().then(function (response) {
             console.log(response)

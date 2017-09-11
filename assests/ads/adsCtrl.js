@@ -2,33 +2,46 @@ app.controller('adsCtrl',function (dataService,$location,$scope,$document) {
    if (dataService.name===null) {
         $location.path('/login')
     }
-    dataService.getTotalAds().then(function (response) {
-        console.log(response)
-        $scope.total_ads=response.data.response[0].count;
-        console.log($scope.total_ads);
 
-    }).catch(function (response) {
-        console.log(response)
-    })
+    $scope.getAd=function () {
+        if ($scope.displayed)
+            $scope.displayed=!$scope.displayed;
+        $scope.displayed=!$scope.displayed;
+        dataService.getAds().then(function (response) {
+            console.log("called", response);
+            $scope.ads = response.data.response
+        }).catch(function (response) {
+            console.log(response);
+        })
+    }
 
-    dataService.getActiveAds().then(function (response) {
-        console.log(response)
-        $scope.active_ads=response.data.response[0].count;
-        console.log($scope.active_ads);
+    $scope.getActiveAd=function () {
+        console.log("555555555555",$scope.displayed)
+        if ($scope.displayed)
+            $scope.displayed=!$scope.displayed;
+        $scope.displayed=!$scope.displayed;
+        dataService.getActiveAd().then(function (response) {
+            console.log("called", response);
+            $scope.ads = response.data.response
+        }).catch(function (response) {
+            console.log(response);
+        })
 
 
-    }).catch(function (response) {
-        console.log(response)
-    })
+    }
 
-    dataService.getExpiredAds().then(function (response) {
-        console.log(response)
-        $scope.expired_ads=response.data.response[0].count;
-        console.log($scope.expired_ads);
+    $scope.getExpiredAd=function () {
+        if ($scope.displayed)
+            $scope.displayed=!$scope.displayed;
+        $scope.displayed=!$scope.displayed;
+        dataService.getExpiredAd().then(function (response) {
+            console.log("called", response);
+            $scope.ads = response.data.response
+        }).catch(function (response) {
+            console.log(response);
+        })
+    }
 
-    }).catch(function (response) {
-        console.log(response)
-    })
 
 
 
@@ -59,12 +72,34 @@ app.controller('adsCtrl',function (dataService,$location,$scope,$document) {
     })
 
     function getData() {
-        dataService.getAds().then(function (response) {
-            console.log("called", response);
-            $scope.ads = response.data.response
+        dataService.getTotalAds().then(function (response) {
+            console.log(response)
+            $scope.total_ads=response.data.response[0].count;
+            console.log($scope.total_ads);
+
         }).catch(function (response) {
-            console.log(response);
+            console.log(response)
         })
+
+        dataService.getActiveAds().then(function (response) {
+            console.log(response)
+            $scope.active_ads=response.data.response[0].count;
+            console.log($scope.active_ads);
+
+
+        }).catch(function (response) {
+            console.log(response)
+        })
+
+        dataService.getExpiredAds().then(function (response) {
+            console.log(response)
+            $scope.expired_ads=response.data.response[0].count;
+            console.log($scope.expired_ads);
+
+        }).catch(function (response) {
+            console.log(response)
+        })
+
     }
 
 })

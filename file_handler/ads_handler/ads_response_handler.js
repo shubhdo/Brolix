@@ -237,25 +237,72 @@ module.exports = {
 
     },
     getAds:(req,res)=> {
-        Ads.find({},(err,success)=> {
-            if (err) {
-                console.log(err);
-                res.status(400).send({
-                    "responseCode": 400,
-                    "responseMessage": "Unsuccessful",
-                    "response": err.message
-                });
 
-            }
-            else {
-                console.log("**************", success);
-                res.status(200).send({
-                    "responseCode": 200,
-                    "responseMessage": "Successful",
-                    "response": success
-                });
-            }
-        })
+        let expired=req.query.expired;
+        let active=req.query.active;
+        if (active==1) {
+            Ads.find({expired: false}, (err, success) => {
+                if (err) {
+                    console.log(err);
+                    res.status(400).send({
+                        "responseCode": 400,
+                        "responseMessage": "Unsuccessful",
+                        "response": err.message
+                    });
+
+                }
+                else {
+                    console.log("**************", success);
+                    res.status(200).send({
+                        "responseCode": 200,
+                        "responseMessage": "Successful",
+                        "response": success
+                    });
+                }
+            })
+        }
+        else if (expired==1) {
+            Ads.find({expired: true}, (err, success) => {
+                if (err) {
+                    console.log(err);
+                    res.status(400).send({
+                        "responseCode": 400,
+                        "responseMessage": "Unsuccessful",
+                        "response": err.message
+                    });
+
+                }
+                else {
+                    console.log("**************", success);
+                    res.status(200).send({
+                        "responseCode": 200,
+                        "responseMessage": "Successful",
+                        "response": success
+                    });
+                }
+            })
+        }
+        else {
+            Ads.find({}, (err, success) => {
+                if (err) {
+                    console.log(err);
+                    res.status(400).send({
+                        "responseCode": 400,
+                        "responseMessage": "Unsuccessful",
+                        "response": err.message
+                    });
+
+                }
+                else {
+                    console.log("**************", success);
+                    res.status(200).send({
+                        "responseCode": 200,
+                        "responseMessage": "Successful",
+                        "response": success
+                    });
+                }
+            })
+        }
     },
     createReport: (req, res) => {
 

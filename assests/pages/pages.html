@@ -1,34 +1,43 @@
 <div class="wrapper">
-    <div class="hover panel" style="background-color: #00aeef;color: #ffffff">
+    <div class="hover panel" style="background-color: #00aeef;color: #ffffff" ng-click="getTotalPage()">
         <p>Total Pages</p>
         <p class="data">{{total_pages||"0"}}</p>
+        <span class="div_button" ng-click="getTotalPage()">Show</span>
+
 
     </div>
 
-    <div class="hover panel" style="background-color: #00b288;color: #ffffff;">
+    <div class="hover panel" style="background-color: #00b288;color: #ffffff;" ng-click="getUnpublishedPage()">
         <p>Unpublished Pages</p>
         <p class="data">{{unpublished_pages||"0"}}</p>
+        <span class="div_button" ng-click="getUnpublishedPage()">Show</span>
+
 
     </div>
 
-    <div class="hover panel" style="background-color: #ed1c24;color: #ffffff">
+    <div class="hover panel" style="background-color: #ed1c24;color: #ffffff" ng-click="getRemovedPage()">
         <p>Removed Pages</p>
         <p class="data">{{removed_pages||"0"}}</p>
+        <span class="div_button" ng-click="getRemovedPage()">Show</span>
+
 
     </div>
 
 
-    <div class="hover panel" style="background-color: #c69c6d;color: #ffffff">
+    <div class="hover panel" style="background-color: #c69c6d;color: #ffffff" ng-click="getBlockedPage()">
         <p>Blocked Pages</p>
         <p class="data">{{blocked_pages||"0"}}</p>
+        <span class="div_button" ng-click="getBlockedPage()">Show</span>
+
 
     </div>
 </div>
 
 
-<input type="text" ng-model="strSearch.page_name" placeholder="Search By Page Name" style="display:block;margin-left: 600px ">
+<div id="dataTables" ng-show="displayed">
+    <input type="text" ng-model="strSearch.page_name" placeholder="Search By Page Name" style="display:block;margin-left: 600px ">
 
-<table class="table table-bordered table-hover table-condensed table-striped table-responsive col-lg-offset-4"
+    <table class="table table-bordered table-hover table-condensed table-striped table-responsive col-lg-offset-4"
        style="width: auto;font-size: 16px;margin-top: 25px">
     <tr>
         <td class="btn-primary">Page name</td>
@@ -49,6 +58,7 @@
 </table>
 <dir-pagination-controls boundary-links="true"
                          direction-links="true"></dir-pagination-controls>
+</div>
 <div id="confirmation" role="dialog" class="modal fade" data-backdrop="false">
     <div class="modal-dialog">
         <div class="modal-content" style="font-size: 15px">

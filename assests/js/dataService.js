@@ -11,6 +11,17 @@ angular.module('myApp').service('dataService', function ($q, $http) {
         return httpCall('GET',baseUrl+"getUsers");
     };
 
+    self.getPersonalUsersList=function () {
+        return httpCall('GET',baseUrl+"getUsers?personal=1")
+    }
+
+    self.getBusinessUsersList=function () {
+        return httpCall('GET',baseUrl+"getUsers?business=1")
+    }
+
+    self.getBlockedUserList=function () {
+        return httpCall('GET',baseUrl+"getUsers?blocked=1")
+    }
     self.blockUser=function (data) {
         console.log("999999999",data)
         return httpCall('POST',baseUrl+"blockUser",data)
@@ -108,9 +119,32 @@ angular.module('myApp').service('dataService', function ($q, $http) {
         return httpCall('GET',baseUrl+"getPages");
     }
 
+    self.getUnpublishedPage=function () {
+        return httpCall('GET',baseUrl+"getPages?unpublished=1");
+    }
+
+    self.getBlockedPage=function () {
+        return httpCall('GET',baseUrl+"getPages?blocked=1");
+    }
+
+    self.getRemovedPage=function () {
+        return httpCall('GET',baseUrl+"getPages?removed=1");
+    }
+
+
     self.getAds=function () {
         return httpCall('GET',baseUrl+"getAds");
     }
+
+    self.getActiveAd=function () {
+        return httpCall('GET',baseUrl+"getAds?active=1");
+    }
+
+    self.getExpiredAd=function () {
+        return httpCall('GET',baseUrl+"getAds?expired=1");
+    }
+
+
 
 
     function httpCall(method, url, data) {

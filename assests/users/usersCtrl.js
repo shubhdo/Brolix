@@ -6,7 +6,6 @@ app.controller('usersCtrl',function ($scope,dataService,$document,$location) {
     if (dataService.name===null) {
         $location.path('/login')
     }
-
     var saveData=null;
     $scope.blockUser=function () {
         console.log(saveData)
@@ -54,15 +53,10 @@ app.controller('usersCtrl',function ($scope,dataService,$document,$location) {
             })
     };
 
-
-
-    $scope.saveUser=function (user) {
-        saveData=user
-    }
-    $document.ready(function () {
-        getData()
-    })
-    function getData() {
+    $scope.getTotalUser=function () {
+        if ($scope.displayed)
+            $scope.displayed=!$scope.displayed;
+        $scope.displayed=!$scope.displayed;
         dataService.getUsers().then(function (response) {
 
             console.log(response.data.response);
@@ -83,7 +77,96 @@ app.controller('usersCtrl',function ($scope,dataService,$document,$location) {
         }).catch(function (error) {
             console.log(error);
         })
+    }
 
+    $scope.getPersonalUser=function () {
+        if ($scope.displayed)
+            $scope.displayed=!$scope.displayed;
+        $scope.displayed=!$scope.displayed;
+        dataService.getPersonalUsersList().then(function (response) {
+
+            console.log(response.data.response);
+            $scope.users=response.data.response
+            for (var i=0;i<response.data.response.length;i++)
+            {
+                console.log(response.data.response[i].blocked);
+                if(response.data.response[i].blocked) {
+                    $scope.users[i].status="Unblock"
+                }
+                else {
+                    $scope.users[i].status="Block"
+
+                }
+            }
+            console.log("5555555",$scope.users)
+
+        }).catch(function (error) {
+            console.log(error);
+        })
+
+    }
+
+    $scope.getBusinessUser=function () {
+        if ($scope.displayed)
+            $scope.displayed=!$scope.displayed;
+        $scope.displayed=!$scope.displayed;
+        dataService.getBusinessUsersList().then(function (response) {
+
+            console.log(response.data.response);
+            $scope.users=response.data.response
+            for (var i=0;i<response.data.response.length;i++)
+            {
+                console.log(response.data.response[i].blocked);
+                if(response.data.response[i].blocked) {
+                    $scope.users[i].status="Unblock"
+                }
+                else {
+                    $scope.users[i].status="Block"
+
+                }
+            }
+            console.log("5555555",$scope.users)
+
+        }).catch(function (error) {
+            console.log(error);
+        })
+    }
+
+    $scope.getBlockedUser=function () {
+        if ($scope.displayed)
+            $scope.displayed=!$scope.displayed;
+        $scope.displayed=!$scope.displayed;
+        dataService.getBlockedUserList().then(function (response) {
+
+            console.log(response.data.response);
+            $scope.users=response.data.response
+            for (var i=0;i<response.data.response.length;i++)
+            {
+                console.log(response.data.response[i].blocked);
+                if(response.data.response[i].blocked) {
+                    $scope.users[i].status="Unblock"
+                }
+                else {
+                    $scope.users[i].status="Block"
+
+                }
+            }
+            console.log("5555555",$scope.users)
+
+        }).catch(function (error) {
+            console.log(error);
+        })
+    }
+
+
+
+    $scope.saveUser=function (user) {
+        saveData=user
+    }
+    $document.ready(function () {
+        getData()
+    })
+    function getData() {
 
         dataService.getTotalUsers().then(function (response) {
             console.log(response)

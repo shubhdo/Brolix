@@ -1,0 +1,100 @@
+<div class="wrapper">
+    <div class="hover panel" style="background-color: #00aeef;color: #ffffff" ng-click="getAd()">
+        <p>Total Ads</p>
+        <p class="data">{{total_ads||"0"}}</p>
+        <span class="div_button" ng-click="getAd()">Show</span>
+
+
+    </div>
+    <div class="hover panel" style="background-color: #00b288;color: #ffffff" ng-click="getActiveAd()">
+        <p>Active Ads</p>
+        <p class="data">{{active_ads||"0"}}</p>
+        <span class="div_button" ng-click="getActiveAd()">Show</span>
+
+
+    </div>
+    <div class="hover panel" style="background-color: #ed1c24;color: #ffffff" ng-click="getExpiredAd()">
+        <p>Expired Ads</p>
+        <p class="data">{{expired_ads||"0"}}</p>
+        <span class="div_button" ng-click="getExpiredAd()">Show</span>
+
+
+    </div>
+</div>
+<div id="dataTable" ng-show="displayed">
+    <input type="text" ng-model="strSearch.description" placeholder="Search By Description" style="display:block;margin-left: 600px ">
+
+    <table class="table table-bordered table-hover table-condensed table-striped table-responsive col-lg-offset-4"
+           style="width: auto;font-size: 16px;margin-top: 25px">
+        <tr>
+            <td class="btn-primary">Ad type</td>
+            <td class="btn-primary">Description</td>
+            <td class="btn-primary">Expired</td>
+            <td class="btn-primary">Reach Limit</td>
+            <td class="btn-primary">Action</td>
+        </tr>
+        <tr dir-paginate="ad in ads|itemsPerPage:5|filter:strSearch track by $index ">
+            <td>{{ad.ad_type}}</td>
+            <td>{{ad.description}}</td>
+            <td>{{ad.expired}}</td>
+
+            <td>{{ad.limitReach}}</td>
+            <td ng-click="editAds(ad)" class="action" data-toggle="modal" data-target="#details"><a href="">Edit</a></td>
+
+
+        </tr>
+    </table>
+    <dir-pagination-controls boundary-links="true"
+                             direction-links="true"></dir-pagination-controls>
+</div>
+
+<div id="details" role="dialog" class="modal fade" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content" style="font-size: 15px">
+            <div class="modal-content" style="font-size: 15px">
+                <div style="background-color: #286090;height: 30px"></div>
+
+                <h1 class="modal-title" style="font-size: 17px">Edit Ad Details</h1>
+
+                <div class="modal-body">
+
+                    <form name="edit" autocomplete="off">
+                        <div class="form-group">
+                            Ad type
+                            <select name="ads_type" required ng-model="obj.ad_type"
+                                    ng-pattern="/^[A-Za-z ]{2,20}$/"
+                                    class="form-control">
+                                <option value="Cash">Cash</option>
+                                <option value="Coupon">Coupon</option>
+                            </select>
+                            <span
+                                    ng-show='edit.page_name.$dirty&&edit.page_name.$invalid||edit.page_name.$dirty&&edit.page_name.$error.pattern'>
+        Only alphabets are allowed
+
+  </span>
+                        </div>
+                        <div class="form-group">
+                            Description
+                            <input type="text" name="description" required ng-model="obj.description"
+                                   ng-pattern="/^[A-Za-z0-9% ]{2,}$/"
+                                   class="form-control">
+                            <span
+                                    ng-show='edit.description.$dirty&&edit.description.$invalid||edit.description.$dirty&&edit.description.$error.pattern'>
+        Only alphabets are allowed
+
+  </span>
+                        </div>
+
+
+                        <input type="submit" ng-disabled="edit.$invalid" ng-click="add(obj)" data-dismiss="modal"
+                               value="Edit Page">
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

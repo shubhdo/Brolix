@@ -5,7 +5,7 @@ app.controller('loginCtrl', ['$scope','dataService','$location','toastr',functio
         location.path('/login')
     }
     scope.logOut=function () {
-        toastr.info('Called')
+        toastr.info('You have successfully logged out')
         location.path('/login')
         dataService.name=null;
 

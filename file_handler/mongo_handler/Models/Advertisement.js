@@ -25,6 +25,14 @@ let Advertisement=new Schema({
     limitReach:{
       type:Number
     },
+    applied_cards:{
+      card:{
+          type:Schema.Types.ObjectId, ref: 'Card'
+      },
+      by:{
+          type:Schema.Types.ObjectId, ref: 'User'
+      }
+    },
     expired:{
        type:Boolean,
        default:false

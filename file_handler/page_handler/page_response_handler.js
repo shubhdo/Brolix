@@ -370,25 +370,97 @@ module.exports = {
     },
 
     getPages:(req,res)=> {
-      Page.find({},(err,success)=> {
-          if (err) {
-              console.log(err);
-              res.status(400).send({
-                  "responseCode": 400,
-                  "responseMessage": "Unsuccessful",
-                  "response": err.message
-              });
 
-          }
-          else {
-              console.log("**************", success);
-              res.status(200).send({
-                  "responseCode": 200,
-                  "responseMessage": "Successful",
-                  "response": success
-              });
-          }
-      })
+        let unpublished = req.query.unpublished;
+        let blocked = req.query.blocked;
+        let removed = req.query.removed;
+
+        console.log(unpublished);
+        console.log(blocked);
+        if (unpublished == 1) {
+            Page.find({page_ads:[]}, (err, success) => {
+                if (err) {
+                    console.log(err);
+                    res.status(400).send({
+                        "responseCode": 400,
+                        "responseMessage": "Unsuccessful",
+                        "response": err.message
+                    });
+
+                }
+                else {
+                    console.log("**************", success);
+                    res.status(200).send({
+                        "responseCode": 200,
+                        "responseMessage": "Successful",
+                        "response": success
+                    });
+                }
+            })
+        }
+        else if(blocked==1) {
+            Page.find({blocked:true}, (err, success) => {
+                if (err) {
+                    console.log(err);
+                    res.status(400).send({
+                        "responseCode": 400,
+                        "responseMessage": "Unsuccessful",
+                        "response": err.message
+                    });
+
+                }
+                else {
+                    console.log("**************", success);
+                    res.status(200).send({
+                        "responseCode": 200,
+                        "responseMessage": "Successful",
+                        "response": success
+                    });
+                }
+            })
+        }
+        else if(removed==1) {
+            Page.find({status_active:false}, (err, success) => {
+                if (err) {
+                    console.log(err);
+                    res.status(400).send({
+                        "responseCode": 400,
+                        "responseMessage": "Unsuccessful",
+                        "response": err.message
+                    });
+
+                }
+                else {
+                    console.log("**************", success);
+                    res.status(200).send({
+                        "responseCode": 200,
+                        "responseMessage": "Successful",
+                        "response": success
+                    });
+                }
+            })
+        }
+        else {
+            Page.find({}, (err, success) => {
+                if (err) {
+                    console.log(err);
+                    res.status(400).send({
+                        "responseCode": 400,
+                        "responseMessage": "Unsuccessful",
+                        "response": err.message
+                    });
+
+                }
+                else {
+                    console.log("**************", success);
+                    res.status(200).send({
+                        "responseCode": 200,
+                        "responseMessage": "Successful",
+                        "response": success
+                    });
+                }
+            })
+        }
     },
     createReport: (req, res) => {
 

@@ -91,6 +91,17 @@ span {
     cursor: pointer;
 }
 
+.div_button {
+    padding: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    border: solid #008bbf 2px;
+    cursor: pointer;
+}
 
+.nocontent {
+    position: relative;
+    bottom: 36px;
+}
 
    a:hover, a:focus{color: green!important;}
