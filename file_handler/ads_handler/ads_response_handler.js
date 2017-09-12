@@ -58,7 +58,7 @@ module.exports = {
     },
     editAds: (req, res) => {
 
-        console.log("333333333333333",req.body);
+        console.log("333333333333333", req.body);
 
         let adsIdCriteria = req.body._id;
 
@@ -101,6 +101,79 @@ module.exports = {
         })
 
     },
+    applyCard: (req, res) => {
+        let cardId = req.body.cardId;
+        let userId = req.body.userId;
+        let adsId = req.body.adsId;
+
+        User.aggregate(
+            {
+                $match: {
+                    _id: mongoose.Types.ObjectId(userId)
+                }
+            },
+            {
+                $unwind: "$luckCard"
+
+            },
+            {
+                $match: {
+                    "luckCard._id": mongoose.Types.ObjectId(cardId)
+                }
+            }
+            , (final_error, final_response) => {
+
+
+                if(final_response[0].luckCard.status_active) {
+
+
+                    Ads.findOneAndUpdate({_id:adsId},{$push:{appliedCards:cardId}},{new:true},(ads_update_error,ads_update_success)=> {
+                        if (ads_update_error) {
+                            console.log(ads_update_error);
+                            res.status(400).send({
+                                "responseCode": 400,
+                                "responseMessage": "Unsuccessful",
+                                "response": ads_update_error.message
+                            });
+
+                        }
+                        else {
+
+                            console.log("**************", ads_update_success);
+
+                            User.findOneAndUpdate({"luckCard._id":cardId},{$set:{"luckCard.$.status_active":false}},(user_update_error,user_update_success)=> {
+                                if (user_update_error) {
+                                    console.log(user_update_error);
+                                    res.status(400).send({
+                                        "responseCode": 400,
+                                        "responseMessage": "Unsuccessful",
+                                        "response":user_update_error.message
+                                    })
+                                }
+                                else {
+                                    res.status(200).send({
+                                        "responseCode": 200,
+                                        "responseMessage": "Luck card is applied",
+                                        "response":ads_update_success
+                                    });
+                                }
+                            })
+
+                        }
+                    })
+                }
+                else {
+                    res.status(400).send({
+                        "responseCode": 400,
+                        "responseMessage": "Card is already applied",
+                        "response": null
+                    });
+                }
+            }
+        )
+
+
+    },
     removeAds: (req, res) => {
 
 
@@ -134,11 +207,11 @@ module.exports = {
 
     getAdsData: (req, res) => {
 
-        let active=req.query.active;
-        let expired=req.query.expired;
+        let active = req.query.active;
+        let expired = req.query.expired;
 
 
-        if (active==1) {
+        if (active == 1) {
             Ads.aggregate(
                 {
                     $match: {
@@ -172,7 +245,7 @@ module.exports = {
             )
 
         }
-        else if(expired==1) {
+        else if (expired == 1) {
             Ads.aggregate(
                 {
                     $match: {
@@ -205,42 +278,41 @@ module.exports = {
                 }
             )
         }
-            else
-            {
+        else {
 
 
-                Ads.aggregate({
-                    $group: {
-                        _id: null,
-                        count: {$sum: 1}
+            Ads.aggregate({
+                $group: {
+                    _id: null,
+                    count: {$sum: 1}
 
-                    }
-                }, (err, success) => {
-                    if (err) {
-                        console.log(err);
-                        res.status(400).send({
-                            "responseCode": 400,
-                            "responseMessage": "Unsuccessful",
-                            "response": err.message
-                        });
-                    }
-                    else {
-                        console.log("**************", success);
-                        res.status(200).send({
-                            "responseCode": 200,
-                            "responseMessage": "Successful",
-                            "response": success
-                        });
-                    }
-                })
-            }
+                }
+            }, (err, success) => {
+                if (err) {
+                    console.log(err);
+                    res.status(400).send({
+                        "responseCode": 400,
+                        "responseMessage": "Unsuccessful",
+                        "response": err.message
+                    });
+                }
+                else {
+                    console.log("**************", success);
+                    res.status(200).send({
+                        "responseCode": 200,
+                        "responseMessage": "Successful",
+                        "response": success
+                    });
+                }
+            })
+        }
 
     },
-    getAds:(req,res)=> {
+    getAds: (req, res) => {
 
-        let expired=req.query.expired;
-        let active=req.query.active;
-        if (active==1) {
+        let expired = req.query.expired;
+        let active = req.query.active;
+        if (active == 1) {
             Ads.find({expired: false}, (err, success) => {
                 if (err) {
                     console.log(err);
@@ -261,7 +333,7 @@ module.exports = {
                 }
             })
         }
-        else if (expired==1) {
+        else if (expired == 1) {
             Ads.find({expired: true}, (err, success) => {
                 if (err) {
                     console.log(err);
@@ -462,17 +534,35 @@ module.exports = {
                             return
                         }
                         if (resu.limitReach === resu.viewed_by.length) {
-                            let winnerArr = common_js_functions.randomNo(0, Number(resu.limitReach), Number(resu.winner_limit));
-                            console.log("2222222222222", winnerArr);
-                            let winnerArrIds = winnerArr.map(x => {
-                                return resu.viewed_by[x];
-                            });
-                            console.log("************", winnerArrIds);
+
+                            let weightedArray=resu.viewed_by;
+
+                            console.log("weightedArray===>",weightedArray)
+                            console.log("resu.viewedby===>",resu.viewed_by)
+
+                            console.log("resu.appliedby===>",resu.appliedCards)
+
+
+                            for (let i=0;i<resu.appliedCards.length;i++) {
+                                console.log("called")
+                                for (let j=0;j<resu.appliedCards[i].no_of_chances;j++)
+                                {
+                                    console.log("all element iterated");
+                                    weightedArray.push(resu.appliedCards[i].by);
+                                }
+
+                            }
+                            console.log("weighted Array",weightedArray)
+
+
+                            let winnerArr = common_js_functions.randomNo(0, Number(resu.winner_limit),weightedArray);
+
+                            console.log("************", winnerArr);
                             async.series([
                                 function (callback) {
                                     Ads.findOneAndUpdate({_id: adsIdCriteria}, {
                                         $set: {
-                                            winner_ids: winnerArrIds,
+                                            winner_ids: winnerArr,
                                             expired: true
                                         }
                                     }, {new: true}, (err, resu) => {
@@ -489,7 +579,7 @@ module.exports = {
 
                                 },
                                 function (callback) {
-                                    User.find({_id: {$in: winnerArrIds}}, (error, result) => {
+                                    User.find({_id: {$in: winnerArr}}, (error, result) => {
                                         if (error) {
                                             console.log("55555555555", error);
                                             callback(err);

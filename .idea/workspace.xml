@@ -2,36 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5899cd5a-50ab-43e9-9d7d-216496de99ae" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assests/cards/cards.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assests/cards/cards.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/file_handler/cards_handler/cards_response_handler.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/file_handler/mongo_handler/Models/Card.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imageUpload.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/cards_routes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/videoUpload.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/ads/ads.html" afterPath="$PROJECT_DIR$/assests/ads/ads.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/ads/adsCtrl.js" afterPath="$PROJECT_DIR$/assests/ads/adsCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/app.js" afterPath="$PROJECT_DIR$/assests/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/css/style.css" afterPath="$PROJECT_DIR$/assests/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/index.html" afterPath="$PROJECT_DIR$/assests/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/js/dataService.js" afterPath="$PROJECT_DIR$/assests/js/dataService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/login/login.html" afterPath="$PROJECT_DIR$/assests/login/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/login/loginCtrl.js" afterPath="$PROJECT_DIR$/assests/login/loginCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/pages/pages.html" afterPath="$PROJECT_DIR$/assests/pages/pages.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/pages/pagesCtrl.js" afterPath="$PROJECT_DIR$/assests/pages/pagesCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/users/users.html" afterPath="$PROJECT_DIR$/assests/users/users.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/users/usersCtrl.js" afterPath="$PROJECT_DIR$/assests/users/usersCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file_handler/ads_handler/ads_response_handler.js" afterPath="$PROJECT_DIR$/file_handler/ads_handler/ads_response_handler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file_handler/config/config_dev.js" afterPath="$PROJECT_DIR$/file_handler/config/config_dev.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file_handler/cards_handler/cards_response_handler.js" afterPath="$PROJECT_DIR$/file_handler/cards_handler/cards_response_handler.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file_handler/common_files/js/js_functions.js" afterPath="$PROJECT_DIR$/file_handler/common_files/js/js_functions.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file_handler/mongo_handler/Models/Advertisement.js" afterPath="$PROJECT_DIR$/file_handler/mongo_handler/Models/Advertisement.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file_handler/mongo_handler/Models/User.js" afterPath="$PROJECT_DIR$/file_handler/mongo_handler/Models/User.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file_handler/page_handler/page_response_handler.js" afterPath="$PROJECT_DIR$/file_handler/page_handler/page_response_handler.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file_handler/user_handler/user_response_handler.js" afterPath="$PROJECT_DIR$/file_handler/user_handler/user_response_handler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/multer/package.json" afterPath="$PROJECT_DIR$/node_modules/multer/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/ads_routes.js" afterPath="$PROJECT_DIR$/routes/ads_routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/cards_routes.js" afterPath="$PROJECT_DIR$/routes/cards_routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/user_routes.js" afterPath="$PROJECT_DIR$/routes/user_routes.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -45,41 +26,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cards_routes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/cards_routes.js">
+      <file leaf-file-name="User.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/file_handler/mongo_handler/Models/User.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="341">
+              <caret line="65" column="10" lean-forward="true" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Card.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/file_handler/mongo_handler/Models/Card.js">
+      <file leaf-file-name="ads_routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/ads_routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="12" lean-forward="true" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+            <state relative-caret-position="522">
+              <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cards_response_handler.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/file_handler/cards_handler/cards_response_handler.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="62" column="33" lean-forward="false" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ads_response_handler.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ads_response_handler.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/file_handler/ads_handler/ads_response_handler.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="521">
-              <caret line="253" column="16" lean-forward="false" selection-start-line="253" selection-start-column="16" selection-end-line="253" selection-end-column="16" />
+            <state relative-caret-position="-4015">
+              <caret line="149" column="49" lean-forward="true" selection-start-line="149" selection-start-column="49" selection-end-line="149" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_response_handler.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/file_handler/user_handler/user_response_handler.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6948">
+              <caret line="386" column="35" lean-forward="true" selection-start-line="386" selection-start-column="35" selection-end-line="386" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Advertisement.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/file_handler/mongo_handler/Models/Advertisement.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="21" column="16" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/user_routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="492">
+              <caret line="35" column="14" lean-forward="false" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -134,12 +135,9 @@
         <option value="$PROJECT_DIR$/file_handler/config/dev.json" />
         <option value="$PROJECT_DIR$/file_handler/mongo_handler/Models/Page.js" />
         <option value="$PROJECT_DIR$/assests/addUser/addUser.js" />
-        <option value="$PROJECT_DIR$/routes/user_routes.js" />
         <option value="$PROJECT_DIR$/assests/js/flip_box.js" />
-        <option value="$PROJECT_DIR$/file_handler/common_files/js/js_functions.js" />
         <option value="$PROJECT_DIR$/assests/addUser/addUser.html" />
         <option value="$PROJECT_DIR$/assests/addUser/addUserCtrl.js" />
-        <option value="$PROJECT_DIR$/routes/ads_routes.js" />
         <option value="$PROJECT_DIR$/routes/page_routes.js" />
         <option value="$PROJECT_DIR$/assests/login.html" />
         <option value="$PROJECT_DIR$/assests/home/login.js" />
@@ -148,13 +146,10 @@
         <option value="$PROJECT_DIR$/assests/home/app.js" />
         <option value="$PROJECT_DIR$/file_handler/common_files/js/js_routes.js" />
         <option value="$PROJECT_DIR$/file_handler/mongo_handler/Models/Admin.js" />
-        <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/assests/login/loginCtrl.js" />
         <option value="$PROJECT_DIR$/assests/login/login.html" />
         <option value="$PROJECT_DIR$/file_handler/config/config_dev.js" />
-        <option value="$PROJECT_DIR$/file_handler/user_handler/user_response_handler.js" />
         <option value="$PROJECT_DIR$/assests/js/dataService.js" />
-        <option value="$PROJECT_DIR$/file_handler/ads_handler/ads_response_handler.js" />
         <option value="$PROJECT_DIR$/assests/users/users.html" />
         <option value="$PROJECT_DIR$/assests/css/style.css" />
         <option value="$PROJECT_DIR$/assests/users/usersCtrl.js" />
@@ -170,13 +165,19 @@
         <option value="$PROJECT_DIR$/assests/ads/ads.html" />
         <option value="$PROJECT_DIR$/assests/cards/cards.html" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/routes/cards_routes.js" />
         <option value="$PROJECT_DIR$/file_handler/mongo_handler/Models/Cards.js" />
-        <option value="$PROJECT_DIR$/file_handler/mongo_handler/Models/Card.js" />
-        <option value="$PROJECT_DIR$/file_handler/mongo_handler/Models/User.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/file_handler/mongo_handler/Models/Advertisement.js" />
+        <option value="$PROJECT_DIR$/routes/cards_routes.js" />
+        <option value="$PROJECT_DIR$/file_handler/mongo_handler/Models/Card.js" />
         <option value="$PROJECT_DIR$/file_handler/cards_handler/cards_response_handler.js" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/routes/user_routes.js" />
+        <option value="$PROJECT_DIR$/file_handler/user_handler/user_response_handler.js" />
+        <option value="$PROJECT_DIR$/routes/ads_routes.js" />
+        <option value="$PROJECT_DIR$/file_handler/common_files/js/js_functions.js" />
+        <option value="$PROJECT_DIR$/file_handler/mongo_handler/Models/User.js" />
+        <option value="$PROJECT_DIR$/file_handler/mongo_handler/Models/Advertisement.js" />
+        <option value="$PROJECT_DIR$/file_handler/ads_handler/ads_response_handler.js" />
       </list>
     </option>
   </component>
@@ -218,6 +219,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -235,6 +238,31 @@
               <item name="Brolix" type="462c0819:PsiDirectoryNode" />
               <item name="file_handler" type="462c0819:PsiDirectoryNode" />
               <item name="ads_handler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Brolix" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Brolix" type="462c0819:PsiDirectoryNode" />
+              <item name="file_handler" type="462c0819:PsiDirectoryNode" />
+              <item name="cards_handler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Brolix" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Brolix" type="462c0819:PsiDirectoryNode" />
+              <item name="file_handler" type="462c0819:PsiDirectoryNode" />
+              <item name="common_files" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Brolix" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Brolix" type="462c0819:PsiDirectoryNode" />
+              <item name="file_handler" type="462c0819:PsiDirectoryNode" />
+              <item name="common_files" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Brolix" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Brolix" type="462c0819:PsiDirectoryNode" />
+              <item name="file_handler" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Brolix" type="b2602c69:ProjectViewProjectNode" />
@@ -264,8 +292,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -342,12 +368,13 @@
       <workItem from="1504843753841" duration="30850000" />
       <workItem from="1504877362369" duration="489000" />
       <workItem from="1504930684003" duration="16537000" />
-      <workItem from="1505103198623" duration="27075000" />
+      <workItem from="1505103198623" duration="27349000" />
+      <workItem from="1505189896260" duration="22107000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="301763000" />
+    <option name="totallyTimeSpent" value="324144000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -458,13 +485,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/file_handler/common_files/js/js_functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="33" column="21" lean-forward="true" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assests/login.html" />
     <entry file="file://$PROJECT_DIR$/assests/home/app.js" />
     <entry file="file://$PROJECT_DIR$/assests/home/login.html" />
@@ -487,7 +507,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="15" column="71" lean-forward="true" selection-start-line="15" selection-start-column="71" selection-end-line="15" selection-end-column="71" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -495,7 +514,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="7" column="53" lean-forward="false" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -503,23 +521,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="38" lean-forward="false" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/user_routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="29" column="19" lean-forward="true" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -527,15 +528,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="53" column="72" lean-forward="false" selection-start-line="53" selection-start-column="72" selection-end-line="53" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/page_routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="24" column="18" lean-forward="true" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -543,7 +535,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -583,7 +574,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="42" column="17" lean-forward="true" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -591,7 +581,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -607,7 +596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="701">
           <caret line="96" column="22" lean-forward="false" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -615,7 +603,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="20" column="10" lean-forward="true" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -623,7 +610,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -631,7 +617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="11" column="65" lean-forward="true" selection-start-line="11" selection-start-column="65" selection-end-line="11" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -639,7 +624,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="755">
           <caret line="43" column="15" lean-forward="false" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -647,7 +631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -655,11 +638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
           <caret line="38" column="40" lean-forward="true" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -667,7 +645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-829">
           <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -675,7 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -683,14 +659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/ads_routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -707,30 +675,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/file_handler/user_handler/user_response_handler.js">
+    <entry file="file://$PROJECT_DIR$/routes/page_routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7668">
-          <caret line="426" column="9" lean-forward="true" selection-start-line="426" selection-start-column="9" selection-end-line="426" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file_handler/mongo_handler/Models/Advertisement.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="32" column="48" lean-forward="false" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file_handler/mongo_handler/Models/User.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="32" column="9" lean-forward="true" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+        <state relative-caret-position="330">
+          <caret line="24" column="18" lean-forward="true" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -738,31 +689,87 @@
     <entry file="file://$PROJECT_DIR$/routes/cards_routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file_handler/ads_handler/ads_response_handler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="253" column="16" lean-forward="false" selection-start-line="253" selection-start-column="16" selection-end-line="253" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file_handler/mongo_handler/Models/Card.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="12" lean-forward="true" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/file_handler/cards_handler/cards_response_handler.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="62" column="33" lean-forward="false" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
+        <state relative-caret-position="568">
+          <caret line="140" column="34" lean-forward="true" selection-start-line="140" selection-start-column="34" selection-end-line="140" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/user_routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="35" column="14" lean-forward="false" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file_handler/mongo_handler/Models/Card.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file_handler/mongo_handler/Models/User.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="65" column="10" lean-forward="true" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file_handler/user_handler/user_response_handler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6948">
+          <caret line="386" column="35" lean-forward="true" selection-start-line="386" selection-start-column="35" selection-end-line="386" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/ads_routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file_handler/common_files/js/js_functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="21" column="21" lean-forward="false" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file_handler/mongo_handler/Models/Advertisement.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="21" column="16" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file_handler/ads_handler/ads_response_handler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4015">
+          <caret line="149" column="49" lean-forward="true" selection-start-line="149" selection-start-column="49" selection-end-line="149" selection-end-column="49" />
           <folding />
         </state>
       </provider>

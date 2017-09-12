@@ -33,6 +33,7 @@ routes.get('/getUserData',user_response_handler.getUserData);
 
 routes.post('/login',user_response_handler.login);
 
+routes.post('/addCard',user_response_handler.addCard);
 
 routes.get('/createReport',user_response_handler.createReport);
 

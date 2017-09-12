@@ -353,6 +353,61 @@ module.exports = {
 
 
     },
+    addCard:(req,res)=> {
+        let userId=req.body.userId;
+        let no_of_chances=req.body.no_of_chances;
+        let price=Number(req.body.price);
+        User.findOne({_id:userId},(find_error,find_response)=> {
+
+            if (find_error) {
+                console.log(find_error)
+                res.status(400).send({
+                    "responseCode": 400,
+                    "responseMessage": "Unsuccessful",
+                    "response": find_error.message
+                });
+            }
+            else {
+                if(find_response.brolix<price) {
+                    res.status(400).send({
+                        "responseCode": 400,
+                        "responseMessage": "Unsuccessful",
+                        "response": "Not enough brolix to add card"
+                    });
+                }
+                else {
+                    let setValue={
+                        no_of_chances:no_of_chances,
+                        price:price,
+                        created:Date.now().getTime,
+                    }
+                    User.findOneAndUpdate({_id:userId},{$push:{luckCard:setValue},$inc:{brolix:-price}},{new:true},(update_error,update_success)=> {
+
+                        if (update_error) {
+                            console.log(update_error);
+                            res.status(400).send({
+                                "responseCode": 400,
+                                "responseMessage": "Unsuccessful",
+                                "response": update_error.message
+                            });
+                        }
+                        else {
+                            console.log(update_success);
+                            res.status(200).send({
+                                "responseCode": 200,
+                                "responseMessage": "Card Successfully added",
+                                "response": update_success
+                            });
+                        }
+
+                    })
+                }
+            }
+
+        });
+
+    },
+
     getUsers: (req, res) => {
 
         let personal=req.query.personal;

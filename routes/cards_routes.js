@@ -18,7 +18,9 @@ routes.get('/', (req, res) => {
 })
 
 
+routes.post('/addCard',cards_response_handler.addCard);
 
+routes.post('/buyluckCard',cards_response_handler.buyLuckCard);
 
 
 module.exports = routes;

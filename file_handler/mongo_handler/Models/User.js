@@ -59,7 +59,23 @@ const User = new Schema({
     status_active:{
         type:Boolean,
         default:true
-    }
+    },
+    luckCard:[{
+        no_of_chances:{
+            type:Number
+        },
+        price:{
+            type:Number
+        },
+        created:{
+            type:Date,
+            default:Date.now()
+        },
+        status_active:{
+            type:Boolean,
+            default:true
+        }
+    }]
 });
 
 module.exports = mongoose.model('User', User, 'User');

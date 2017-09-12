@@ -36,4 +36,6 @@ routes.get('/getWinnersData',ads_response_handler.getWinnersData);
 
 routes.get('/getAdsData',ads_response_handler.getAdsData);
 
+routes.post('/applyCard',ads_response_handler.applyCard)
+
 module.exports = routes;

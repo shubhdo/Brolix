@@ -13,13 +13,15 @@ module.exports={
     return response;
     },
 
-    randomNo:function (low,high,limit) {
+    randomNo:function (low,limit,weightedArray) {
         let randNo=[];
-        console.log("//////////",low,high,limit);
+        let high=weightedArray.length;
+        console.log("//////////",low,weightedArray,limit);
+
         while (randNo.length!==limit) {
            let x=Math.floor(Math.random()*(high-low)+low)
            if (!randNo.includes(x))
-               randNo.push(x);
+               randNo.push(weightedArray[x]);
         }
         return randNo;
     },

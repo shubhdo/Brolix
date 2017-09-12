@@ -19,19 +19,15 @@ let Advertisement=new Schema({
     viewed_by:[{
         type:Schema.Types.ObjectId, ref: 'User'
     }],
+    appliedCards:[{
+        type: String,
+        unique:true
+    }],
     winner_limit:{
       type:Number
     },
     limitReach:{
       type:Number
-    },
-    applied_cards:{
-      card:{
-          type:Schema.Types.ObjectId, ref: 'Card'
-      },
-      by:{
-          type:Schema.Types.ObjectId, ref: 'User'
-      }
     },
     expired:{
        type:Boolean,
