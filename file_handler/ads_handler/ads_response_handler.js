@@ -126,8 +126,11 @@ module.exports = {
 
                 if(final_response[0].luckCard.status_active) {
 
-
-                    Ads.findOneAndUpdate({_id:adsId},{$push:{appliedCards:cardId}},{new:true},(ads_update_error,ads_update_success)=> {
+                    let setVal={
+                        no_of_chances:final_response[0].luckCard.no_of_chances,
+                        by:userId
+                    }
+                    Ads.findOneAndUpdate({_id:adsId},{$push:{appliedCards:setVal}},{new:true},(ads_update_error,ads_update_success)=> {
                         if (ads_update_error) {
                             console.log(ads_update_error);
                             res.status(400).send({
@@ -533,7 +536,7 @@ module.exports = {
                             });
                             return
                         }
-                        if (resu.limitReach === resu.viewed_by.length) {
+                        if (resu.limitReach-1 === resu.viewed_by.length) {
 
                             let weightedArray=resu.viewed_by;
 

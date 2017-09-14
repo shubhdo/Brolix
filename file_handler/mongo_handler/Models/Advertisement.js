@@ -20,8 +20,12 @@ let Advertisement=new Schema({
         type:Schema.Types.ObjectId, ref: 'User'
     }],
     appliedCards:[{
-        type: String,
-        unique:true
+      no_of_chances:{
+          type:Number
+      },
+      by:{
+          type:Schema.Types.ObjectId, ref: 'User'
+      }
     }],
     winner_limit:{
       type:Number
