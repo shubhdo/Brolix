@@ -40,6 +40,9 @@ app.get('*',common_js_files.serveAngularPage)
 */
 
 
+app.get('/favicon.ico', function(req, res) {
+    res.status(204);
+});
 
 app.use('/',user_routes);
 app.use('/',page_routes);
@@ -47,6 +50,8 @@ app.use('/',ads_routes);
 /*
 app.use('/',card_routes);
 */
+
+
 
 
 app.listen(port, () => {
